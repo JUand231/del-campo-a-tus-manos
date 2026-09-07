@@ -1,0 +1,62 @@
+# ==========================================================
+# Del Campo a Tus Manos — Integración Continua mínima (D14)
+# En cada push/PR a main: suite TRD §4 (11 pruebas) + auditoría
+# de dependencias (falla con vulnerabilidades high/critical).
+# ==========================================================
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Suite de pruebas (TRD §4 — 11 pruebas)
+        run: npm test
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: root
+          DB_PASSWORD: ''
+          DB_NAME: del_campo_a_tus_manos
+          JWT_SECRET: ci_only_inseguro_solo_para_tests
+          NODE_ENV: test
+
+      - name: Auditoria de dependencias (bloquea high/critical)
+        run: npm audit --omit=dev --audit-level=high
