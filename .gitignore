@@ -1,0 +1,28 @@
+# Dependencias
+node_modules/
+dist/
+build/
+
+# Variables de Entorno y Secretos (RULES.md: ENV-VARS/SECRETS)
+.env
+.env.local
+.env.production
+*.key
+*.pem
+
+# Archivos de logs y depuración
+logs/
+*.log
+npm-debug.log*
+
+# Base de datos local temporal
+*.sqlite
+*.sqlite3
+*.db
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

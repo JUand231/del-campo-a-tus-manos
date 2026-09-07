@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Del Campo a Tus Manos</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed": "#a3f69c", "secondary-fixed": "#ffdbcf", "tertiary-fixed-dim": "#a5c8ff", "on-surface": "#1b1c1c", "secondary": "#a83900", "tertiary-container": "#006eca", "secondary-fixed-dim": "#ffb59a", "error": "#ba1a1a", "outline-variant": "#bfcaba", "on-error-container": "#93000a", "surface-dim": "#dbdad9", "tertiary": "#00569f", "on-secondary-fixed-variant": "#802a00", "inverse-primary": "#88d982", "surface-container-low": "#f5f3f3", "inverse-on-surface": "#f2f0f0", "on-primary-fixed": "#002204", "surface-variant": "#e4e2e2", "on-tertiary-fixed-variant": "#004786", "on-primary": "#ffffff", "outline": "#707a6c", "on-secondary-fixed": "#380d00", "tertiary-fixed": "#d4e3ff", "on-error": "#ffffff", "surface-bright": "#fbf9f8", "surface-container-lowest": "#ffffff", "surface-container-high": "#e9e8e7", "on-primary-fixed-variant": "#005312", "error-container": "#ffdad6", "primary": "#0d631b", "background": "#fbf9f8", "on-primary-container": "#cbffc2", "surface-container-highest": "#e4e2e2", "on-surface-variant": "#40493d", "on-background": "#1b1c1c", "surface": "#fbf9f8", "primary-fixed-dim": "#88d982", "on-tertiary": "#ffffff", "inverse-surface": "#303031", "surface-container": "#efeded", "secondary-container": "#fc6018", "on-secondary-container": "#531800", "on-secondary": "#ffffff", "surface-tint": "#1b6d24", "on-tertiary-container": "#ebf1ff", "on-tertiary-fixed": "#001c3a", "primary-container": "#2e7d32" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-desktop": "2rem", "space-xs": "0.5rem", "margin-mobile": "1rem", "space-md": "1rem", "touch-target-min": "2.75rem", "gutter-desktop": "1.5rem", "space-sm": "0.75rem", "space-2xl": "3rem", "space-xl": "2rem", "space-lg": "1.5rem", "space-2xs": "0.25rem", "gutter-mobile": "1rem" }, "fontFamily": { "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "label-lg": ["Inter"], "headline-sm": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "headline-lg-mobile": ["Inter"], "display-lg-mobile": ["Inter"], "body-sm": ["Inter"], "title-md": ["Inter"] }, "fontSize": { "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><a class="flex items-center gap-space-xs focus-visible:outline-2 focus-visible:outline-primary-container rounded-lg" data-path="inicio" href="#"><img alt="Logo Del Campo a Tus Manos" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwykc_W-YnzN53R68VKZZiTcqTN6xY_XLoDQVFcun0AV-Sz9FVhtVB9vbfQobaT6besaAs8CqJnRIES_Ksj_95hXhw64tUoJL_HQtyFH7Qy2Xx4EF49mQRfG0zys6OvRYmorJ-J51L5xL_HH48jX-DYJclTILm9VzNT8jp3Jt3A6frPCqd8Vaok6gVDJ0mJfDXWfNNBHpKyCX6dZVxDnhUlQxiN8WjmJ8yhri7LvYOhPyzfKQaeB_E3w"/><span class="font-headline-sm text-headline-sm text-primary-container font-bold tracking-tight hidden sm:inline-block">Del Campo a Tus Manos</span></a></div><div class="hidden md:flex flex-1 max-w-md mx-space-sm"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-touch-target-min pl-10 pr-space-md bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Buscar frutas, hortalizas, tubérculos..." type="search"/></div></div><nav class="hidden xl:flex items-center gap-space-md" data-active-classes="text-primary-container font-headline-sm"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="catalogo" href="#">Catálogo</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="como-funciona" href="#">Cómo Funciona</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="productores" href="#">Productores</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="mis-pedidos" href="#">Mis Pedidos</a></nav><div class="flex items-center gap-space-xs sm:gap-space-sm shrink-0"><a class="hidden lg:inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-primary-container font-label-lg text-label-lg transition-colors" data-path="panel-de-productor" href="#"><span class="material-symbols-outlined mr-1 text-[18px]">agriculture</span>Panel de Productor</a><a class="inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="iniciar-sesion" href="#">Ingresar</a><a class="inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.05)]" data-path="registro" href="#">Registrarse</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-2xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface flex-grow"><div class="flex flex-col w-full">
+<!-- Internal Navigation & Breadcrumb -->
+<div class="w-full bg-surface-container-low/70">
+<div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop py-space-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-xs">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-2xs text-on-surface-variant font-label-md text-label-md overflow-x-auto w-full sm:w-auto py-1">
+<a class="hover:text-primary-container transition-colors shrink-0" data-path="catalogo" href="#">Catálogo</a>
+<span class="material-symbols-outlined text-[14px] text-outline shrink-0">chevron_right</span>
+<a class="hover:text-primary-container transition-colors shrink-0" data-path="catalogo-hortalizas" href="#">Hortalizas y Verduras</a>
+<span class="material-symbols-outlined text-[14px] text-outline shrink-0">chevron_right</span>
+<span class="text-on-surface font-semibold truncate shrink-0">Tomate Chonto Orgánico de Finca</span>
+</nav>
+<a class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-primary-container hover:text-primary transition-colors py-1 group shrink-0" data-path="catalogo" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+        Volver al Catálogo
+      </a>
+</div>
+</div>
+<!-- Main Product View & Ordering Screen -->
+<div class="max-w-[1200px] mx-auto w-full px-margin-mobile lg:px-margin-desktop py-space-xl">
+<!-- System Notice / Identity Protection Banner (RF-04 Security Check) -->
+<div class="mb-space-lg p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md shadow-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-outline text-[20px]">shield_person</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Modo Comprador Autenticado</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-variant font-label-sm text-label-sm text-on-surface-variant">Comercio Seguro</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Nota de validación operativa: Si eres el productor titular de este lote agrícola registrado en la plataforma, las funciones de auto-compra se inhabilitarán para proteger la transparencia del índice campesino.
+        </p>
+</div>
+</div>
+<!-- 2 Columns Desktop Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<!-- LEFT COLUMN: Visuals, Agronomic Traceability & Farmer Card (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Gallery Container -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<!-- Main Hero Product Photo -->
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-opacity duration-300" data-alt="Close up photograph of freshly harvested ripe vibrant red Chonto tomatoes lying in a rustic natural wooden agricultural crate. Earthy morning sunlight warms the dewy tomato skin, with green calyxes attached and soft Andean highland field greenery in the natural blurred background. Crisp agricultural harvest portrait." id="main-product-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqfCOvPX58OLAdv6MwJYsyRfYwDGXzE1nOkdddx-LI7lDvr4tS1N85mqSwbyujsurlJ0USIcYToIkhfW1gbgoUMfWyj6s6j2GV5vCFx7dDJfyM6FNJ4Vj0VSUkx_ogKfiYxQx6LPp7R0fmWvy7mH97kJ00oHif_u9vus8FfQxENhLQnkaztLq6745L76m5DU3y8JWjJ8fZL_TKsnDaMcFlYnjmTIK6eD8nAAtnb93E-_ASuyrjFeihaw"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-sm px-space-sm py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-primary-container text-[16px]">eco</span>
+<span class="font-label-sm text-label-sm text-primary-container font-semibold">Cosecha de Hoy</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-on-surface/80 backdrop-blur-sm text-surface-container-lowest px-2 py-0.5 rounded font-label-sm text-label-sm">
+              Foto en Finca Bella Vista
+            </div>
+</div>
+<!-- Thumbnails Row -->
+<div class="grid grid-cols-3 gap-space-xs">
+<button class="thumbnail-btn relative aspect-[4/3] rounded-lg overflow-hidden bg-surface-container opacity-100 ring-2 ring-primary-container focus:outline-none transition-all" onclick="changeThumbnail(this, 'main')">
+<img class="w-full h-full object-cover pointer-events-none" data-alt="Rustic wooden crate filled with glossy ripe red and green tomatoes in Colombian Andean farm, morning sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApPQgpk2ZofFzUg70756luOk9lnm_kDs_dDao1Dz9l04F9mksvDr_bEPzjWXi_xWgqSaTTuJsI_zwEY0xqOORTCUkBTJ7ZkRhvGcceIExAStZrZkicl9iJU2HjpOsjoqtXXuHOC_PXSwRl03SIgxXIAY3qAAjOJdZ0Zl0YqTDRCkLR6cBrc1lSjAp9coXgqn2b2UTgrW7UgZRUtcFw1CCd6ciEiDhq87pfBkfRLVw96bBXJ9hB040gig"/>
+</button>
+<button class="thumbnail-btn relative aspect-[4/3] rounded-lg overflow-hidden bg-surface-container opacity-70 hover:opacity-100 focus:outline-none transition-all" onclick="changeThumbnail(this, 'crop')">
+<img class="w-full h-full object-cover pointer-events-none" data-alt="Green lush sustainable greenhouse canopy showing organic tomato vines supported by trellises in rural Subachoque Cundinamarca with clear blue mountain sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2mXDrRs1vgxU9jDFrJYo4GNkaEp_VCqhKwEjm7lDXJd60X596smexjTdkxC0g1hu_lmvkxbVJdKa867De1PV-OPZjZKk0H_PkW3LC_KG-aksU7Yl8m33Jc7k0lOEhkQ1vG9yctSy38Q44z8Fe1-lYEzf5YoLqgU-zL9TVcgjcpKwwxHSVwgV20MVaMkoZDLrO5GbaOdWekfy8JcuDrrpW23h7LrvGLRznhIXBCp3SqYH0C7EmY2cwfw"/>
+</button>
+<button class="thumbnail-btn relative aspect-[4/3] rounded-lg overflow-hidden bg-surface-container opacity-70 hover:opacity-100 focus:outline-none transition-all" onclick="changeThumbnail(this, 'pack')">
+<img class="w-full h-full object-cover pointer-events-none" data-alt="Biodegradable eco-friendly ventilated cardboard produce box filled with cushioned red tomatoes ready for fair trade logistics transport." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTybWyvsf5bYjaP5i-USwMXYoH5sHXE7IOUAzBWHZETaHWpo00dgk-uHCSXe5m5n1OQFLqcZ8FA22imDLIKEv35KK19TQn4e7WINF4eAqNddioTOzmZV1z4uiur-imgU9U2ScHe-VadmSF0umoemrVNKX3iSnd3YtgFusCHKejK21iUxGmDyNz2nP-C27a2OOCRAjdNonsp9hLTq9eLiaLPI0iEhMhKQ6VX-bEreqnyRewuMC5jzAUHg"/>
+</button>
+</div>
+</div>
+<!-- Agronomic Specifications Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[20px]">agriculture</span>
+              Ficha Técnica de Origen
+            </h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">LOTE #CUN-2024-94</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-outline block mb-0.5">Método de Siembra</span>
+<span class="font-label-lg text-label-lg text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+                Agroecológico
+              </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant block mt-0.5">Sin pesticidas sintéticos</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-outline block mb-0.5">Momento de Corte</span>
+<span class="font-label-lg text-label-lg text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[16px]">wb_sunny</span>
+                Madrugador
+              </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant block mt-0.5">Recolectado hoy 5:30 AM</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-outline block mb-0.5">Empaque Campesino</span>
+<span class="font-label-lg text-label-lg text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[16px]">inventory_2</span>
+                Huacal Natural
+              </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant block mt-0.5">100% biodegradable</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-outline block mb-0.5">Calibre y Selección</span>
+<span class="font-label-lg text-label-lg text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-primary-container text-[16px]">award_star</span>
+                Primera (Grueso)
+              </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant block mt-0.5">Diámetro 65-75 mm</span>
+</div>
+</div>
+</div>
+<!-- Producer Profile Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-start gap-space-md mb-space-md">
+<div class="relative">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container shrink-0">
+<img class="w-full h-full object-cover" data-alt="Honest outdoor candid portrait of an authentic Colombian Andean peasant farmer in his fifties named Don Gustavo Morales smiling proudly wearing a traditional warm brimmed hat and work apron against rolling green cultivation fields." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs6lVtBWO8PEg_GQFHCxqRp8fzzD_5ZHbCy75KfLPKQ4_XbvmUu3DJXDfjgr1XKv1sKphOH27i4rqO-Bc7EXrIQRemmoZBo3eRQR6GVasXvVCZccUAQgeKmBXfZbf61gO9B6bCbLQ6BOGcNcAU77AKuGepSsJioxlJEbrCMkoAr2I0PiBrgRuiOLFQhjGV01tNRYXN3BsGURNygyz1Yxgt1kTSNbgDZNQMYlQGY2_ZzUuVe_wzABlVFQ"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-primary-container text-on-primary rounded-full p-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1 mb-0.5">
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">Don Gustavo Morales</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mb-space-2xs">
+<span class="material-symbols-outlined text-outline text-[16px]">home_pin</span>
+                Finca Bella Vista, Subachoque
+              </p>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                  Productor Verificado
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface flex items-center gap-0.5 font-bold">
+                  ⭐ 4.9 <span class="font-normal text-on-surface-variant">(42 cosechas)</span>
+</span>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-space-md bg-surface-container-low p-space-sm rounded-lg">
+            “Cuidamos la tierra con abonos orgánicos propios y agua de nacedero. Su compra llega a nuestra mesa familiar sin descuentos de intermediarios.”
+          </p>
+<div class="flex flex-col sm:flex-row items-center gap-space-xs">
+<a class="w-full sm:flex-1 h-touch-target-min rounded-xl bg-surface-container hover:bg-surface-variant text-on-surface font-label-lg text-label-lg inline-flex items-center justify-center gap-space-xs transition-colors" data-path="productor-don-gustavo" href="#">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+              Ver Perfil de Finca
+            </a>
+<button class="w-full sm:flex-1 h-touch-target-min rounded-xl bg-surface-container-low hover:bg-surface-container text-primary-container font-label-lg text-label-lg inline-flex items-center justify-center gap-space-xs transition-colors" onclick="alert('Abriendo canal directo de mensajería rural con Don Gustavo...')" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+              Preguntar al Productor
+            </button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Purchase Console & Real-Time Direct Order Configuration (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Main Product Identity & Pricing Header Card -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm">
+<!-- Category & Geographic Badges -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs mb-space-sm">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+                Subachoque, Cundinamarca
+              </span>
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-primary-fixed/60 text-on-primary-fixed-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">nature</span>
+                Hortaliza Fresca
+              </span>
+</div>
+<!-- Real-time Stock Pill -->
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold" id="stock-badge">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              Stock disponible: <span class="font-bold" id="current-stock">180</span> Kg
+            </div>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile sm:text-display-lg text-on-surface font-bold tracking-tight mb-space-xs">
+            Tomate Chonto de Primera Calidad
+          </h1>
+<div class="flex items-baseline gap-space-xs mb-space-md">
+<span class="font-display-lg text-display-lg-mobile sm:text-display-lg text-primary-container font-extrabold tracking-tight">$3.800</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant font-medium">COP / Kilogramo</span>
+<span class="ml-space-xs px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Precio Justo Campesino</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+            Cosechado manualmente en su punto óptimo de maduración por manos campesinas. Presenta pulpa carnosa, acidez perfectamente equilibrada y alto contenido de jugo natural; ideal para ensaladas frescas, guisos tradicionales y salsas artesanales sin conservantes. Empacado con cuidado en huacales biodegradables para conservar intacta su textura durante el transporte rural.
+          </p>
+<!-- Warning threshold alert (Dynamic for low stock simulation) -->
+<div class="hidden mb-space-md p-space-sm rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center gap-space-xs" id="low-stock-alert">
+<span class="material-symbols-outlined text-[20px] text-secondary">warning</span>
+<span class="font-label-md text-label-md font-medium">¡Últimas unidades de esta recolección! Quedan menos de 20 Kg disponibles en la finca.</span>
+</div>
+<!-- Purchase Configuration Form / Console -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-lg">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<label class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-1.5" for="quantity-input">
+<span class="material-symbols-outlined text-primary-container text-[20px]">scale</span>
+                  Seleccione la cantidad a cosechar y enviar
+                </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pedido mínimo: 5 Kg</span>
+</div>
+<!-- Interactive Stepper Controller (Min 44px touch targets) -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
+<div class="flex items-center bg-surface-container-lowest rounded-xl shadow-sm p-1">
+<!-- Decrement Button -->
+<button aria-label="Disminuir un kilogramo" class="w-12 h-touch-target-min rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-95 text-on-surface flex items-center justify-center transition-all focus-visible:outline-2 focus-visible:outline-primary-container" id="btn-decrement" onclick="adjustQuantity(-1)" type="button">
+<span class="material-symbols-outlined text-[22px]">remove</span>
+</button>
+<!-- Numeric Editable Input -->
+<div class="relative flex items-center justify-center px-space-md">
+<input class="w-20 text-center font-headline-lg text-headline-lg font-bold text-on-surface bg-transparent focus:outline-none" id="quantity-input" max="180" min="5" oninput="onInputQuantityChange()" step="1" type="number" value="15"/>
+<span class="font-headline-sm text-headline-sm text-outline font-semibold ml-1">Kg</span>
+</div>
+<!-- Increment Button -->
+<button aria-label="Aumentar un kilogramo" class="w-12 h-touch-target-min rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-95 text-on-surface flex items-center justify-center transition-all focus-visible:outline-2 focus-visible:outline-primary-container" id="btn-increment" onclick="adjustQuantity(1)" type="button">
+<span class="material-symbols-outlined text-[22px]">add</span>
+</button>
+</div>
+<!-- Quick Presets -->
+<div class="flex items-center gap-space-2xs overflow-x-auto py-1">
+<button class="preset-btn px-space-sm h-touch-target-min rounded-lg bg-surface-container-lowest hover:bg-surface-container font-label-md text-label-md text-on-surface transition-colors shadow-sm" onclick="setPresetQuantity(5)" type="button">5 Kg (Muestra)</button>
+<button class="preset-btn px-space-sm h-touch-target-min rounded-lg bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-semibold transition-colors shadow-sm" onclick="setPresetQuantity(15)" type="button">15 Kg (Familiar)</button>
+<button class="preset-btn px-space-sm h-touch-target-min rounded-lg bg-surface-container-lowest hover:bg-surface-container font-label-md text-label-md text-on-surface transition-colors shadow-sm" onclick="setPresetQuantity(30)" type="button">30 Kg (Restaurante)</button>
+</div>
+</div>
+<!-- Validation message placeholder -->
+<p class="hidden text-error font-label-sm text-label-sm mt-1.5 flex items-center gap-1" id="quantity-error">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span>La cantidad debe estar entre 5 Kg y 180 Kg disponibles.</span>
+</p>
+</div>
+<!-- Transparent Financial Breakdown -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+                  Subtotal agrícola (<span id="calc-qty-display">15</span> Kg × $3.800):
+                </span>
+<span class="font-semibold text-on-surface font-mono" id="subtotal-display">$57.000 COP</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[16px]">local_shipping</span>
+                  Flete directo rural (Ruta Subachoque • Entrega en 24h):
+                </span>
+<span class="font-semibold text-on-surface font-mono">$8.000 COP</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-primary-container">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">savings</span>
+                  Comisión intermediarios tradicionales:
+                </span>
+<span class="font-semibold font-mono line-through text-outline">$0 COP (Ahorro directo)</span>
+</div>
+<div class="pt-space-sm mt-space-2xs flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Total a Pagar</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Impuestos y empaque incluidos</span>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-display-lg-mobile sm:text-display-lg text-primary-container font-extrabold tracking-tight font-mono" id="total-display">
+                    $65.000
+                  </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase font-mono">COP</span>
+</div>
+</div>
+</div>
+<!-- Main CTA Button -->
+<div class="flex flex-col gap-space-xs">
+<button class="w-full h-14 min-h-[48px] rounded-xl bg-primary-container hover:bg-primary active:scale-[0.99] text-on-primary font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-space-sm transition-all shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-container" id="btn-submit-order" onclick="handleOrderSubmit()" type="button">
+<span class="material-symbols-outlined text-[24px]">local_shipping</span>
+<span>Realizar Pedido Transparente</span>
+</button>
+<div class="flex items-center justify-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">lock</span>
+<span>Transacción directa sin retención arbitraria. Don Gustavo recibirá el 100% de la cosecha.</span>
+</div>
+</div>
+</div>
+<!-- Purchase Trust & Guarantees Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm mt-space-lg">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">verified</span>
+<div>
+<h5 class="font-label-lg text-label-lg text-on-surface font-semibold">Garantía de Frescura</h5>
+<p class="font-body-sm text-[13px] text-on-surface-variant leading-snug">Si el producto sufre daños en ruta, se repone o reintegra de inmediato.</p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">payments</span>
+<div>
+<h5 class="font-label-lg text-label-lg text-on-surface font-semibold">Pago Flexible y Justo</h5>
+<p class="font-body-sm text-[13px] text-on-surface-variant leading-snug">Transferencia electrónica en el acto o pago contraentrega en tu puerta.</p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0">handshake</span>
+<div>
+<h5 class="font-label-lg text-label-lg text-on-surface font-semibold">Trato Directo al Campo</h5>
+<p class="font-body-sm text-[13px] text-on-surface-variant leading-snug">Cero especulación financiera. Precio digno fijado por la misma familia campesina.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Farm Harvests / Complementary Fresh Produce Bento Section -->
+<div class="mt-space-2xl">
+<div class="flex items-center justify-between mb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider block">Otras cosechas disponibles en el mismo viaje</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Completa tu canasta campesina desde Subachoque</h2>
+</div>
+<a class="hidden sm:inline-flex items-center gap-1 font-label-lg text-label-lg text-primary-container hover:text-primary transition-colors" data-path="catalogo" href="#">
+          Explorar todo el catálogo
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter-desktop">
+<!-- Harvest Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col hover:shadow-md transition-shadow group">
+<div class="relative aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crisp freshly washed emerald green organic butterhead lettuce heads arranged neatly in agricultural market crates, crisp water droplets glistening under diffuse natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-UaIoG9liF5ZF5qzz_xThWoMoktCh6nJ2boLYmP9UDvsTtHBUaDorPyJgPKmCQBt4GWdqm8UyzminWRXwWQo6FoEcsfTKS0kcrYP2_g6v6RdgmzE6AQZuYlKhyMXnw0YFi03anBheAXu_gCtyr3DuriqT3sI3meckiHWjEGrJ7PqJGoo1eaLAcWk-TdyaYu1QetfnlEPWYV0b1fK4ldPRGILXMTsyiOOz2GmS1Ly4qwxKNy3KIXV9RA"/>
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded text-primary-container font-label-sm text-label-sm font-medium">
+              Finca Bella Vista
+            </span>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline">Lechuga Batavia Hidropónica</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-0.5">Lechuga Crespa Orgánica</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Hojas crujientes y dulces, libres de sustratos pesados. Cosechadas a demanda.</p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary-container font-bold">$2.200</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ Unidad</span>
+</div>
+<button class="h-touch-target-min px-space-md rounded-lg bg-surface-container hover:bg-primary-fixed hover:text-on-primary-fixed text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                Agregar
+              </button>
+</div>
+</div>
+</div>
+<!-- Harvest Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col hover:shadow-md transition-shadow group">
+<div class="relative aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Freshly harvested native Colombian Andean golden Creole potatoes Papa Criolla with authentic natural soil specks resting on a jute sack under high mountain sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKvEvZMvU9N9YQGq2NAYQz_yk1cq756BebFmPqAUjPtKTxED3aeHzD2_2UXpvsqOXr9LW4YZcuZwr3C7J8CIKJkT2NaO4XhnlqCB9IUAiFUWHYfHZKx_cNlB4cx0STNjyWOkhuCQ7qjp6HQpLISF6QUNKNCB5JOMehSwe8dzgcGOFBh9vjPCEvNX-GArFgo9Htn84seRjER3GlZBcESHUE38l0aoMgq8F59q7_x2ezzxTiWLvZeVtgjw"/>
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded text-primary-container font-label-sm text-label-sm font-medium">
+              Finca El Recuerdo (Vecino)
+            </span>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline">Tubérculo Andino</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-0.5">Papa Criolla Limpia</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Ideal para sopas típicas o dorar. Textura suave y cremosa garantizada.</p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary-container font-bold">$4.200</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ Kg</span>
+</div>
+<button class="h-touch-target-min px-space-md rounded-lg bg-surface-container hover:bg-primary-fixed hover:text-on-primary-fixed text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                Agregar
+              </button>
+</div>
+</div>
+</div>
+<!-- Harvest Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col hover:shadow-md transition-shadow group">
+<div class="relative aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Vibrant bright orange organic Andean carrots with feathery green tops still intact lying on raw wooden farm table, natural warm light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj_1vrlSdMKrbN1zK70ILh76RVaf-y7U2-_WKD5BhsUhv1FAvS3DY5Sf44f1_t3go1keH9v73kmlTYQTiLUwsq4jaTCU-iZP7geI0lHauP_GF4a54BkjQKyQ-SKIhkL1Y5bf7P8MgtM04XDbq-BG86burH6HxC_vGNSNfuPQSbDEgM4psOcvM3AKwaaTD8YKSWGIQp8Dp6iNrzGfMr0TkMNhQiJvGDFL2IBzj6rENceJcZmVvW545cMw"/>
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded text-primary-container font-label-sm text-label-sm font-medium">
+              Finca Bella Vista
+            </span>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline">Raíces y Hortalizas</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-0.5">Zanahoria con Rama Dulce</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Tierna y crujiente, cosechada con sus hojas aromáticas frescas.</p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary-container font-bold">$2.800</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ Kg</span>
+</div>
+<button class="h-touch-target-min px-space-md rounded-lg bg-surface-container hover:bg-primary-fixed hover:text-on-primary-fixed text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                Agregar
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Order Logic & Micro-interactions Script -->
+<script>
+    const UNIT_PRICE = 3800;
+    const SHIPPING_COST = 8000;
+    const MAX_STOCK = 180;
+    const MIN_QUANTITY = 5;
+
+    function formatCOP(number) {
+      return '$' + number.toLocaleString('es-CO');
+    }
+
+    function calculateOrder(qty) {
+      const subtotal = qty * UNIT_PRICE;
+      const total = subtotal + SHIPPING_COST;
+
+      document.getElementById('calc-qty-display').innerText = qty;
+      document.getElementById('subtotal-display').innerText = formatCOP(subtotal) + ' COP';
+      document.getElementById('total-display').innerText = formatCOP(total);
+
+      // Low stock warning trigger
+      const remainingAfterOrder = MAX_STOCK - qty;
+      const lowStockAlert = document.getElementById('low-stock-alert');
+      if (remainingAfterOrder < 25) {
+        lowStockAlert.classList.remove('hidden');
+      } else {
+        lowStockAlert.classList.add('hidden');
+      }
+    }
+
+    function adjustQuantity(delta) {
+      const input = document.getElementById('quantity-input');
+      let currentVal = parseInt(input.value) || MIN_QUANTITY;
+      let newVal = currentVal + delta;
+
+      if (newVal < MIN_QUANTITY) newVal = MIN_QUANTITY;
+      if (newVal > MAX_STOCK) newVal = MAX_STOCK;
+
+      input.value = newVal;
+      updatePresetsStyle(newVal);
+      calculateOrder(newVal);
+      hideError();
+    }
+
+    function onInputQuantityChange() {
+      const input = document.getElementById('quantity-input');
+      let val = parseInt(input.value);
+
+      if (isNaN(val) || val < MIN_QUANTITY || val > MAX_STOCK) {
+        showError();
+        return;
+      }
+
+      hideError();
+      updatePresetsStyle(val);
+      calculateOrder(val);
+    }
+
+    function setPresetQuantity(qty) {
+      const input = document.getElementById('quantity-input');
+      input.value = qty;
+      hideError();
+      updatePresetsStyle(qty);
+      calculateOrder(qty);
+    }
+
+    function updatePresetsStyle(currentQty) {
+      const buttons = document.querySelectorAll('.preset-btn');
+      buttons.forEach(btn => {
+        const text = btn.innerText;
+        if (text.startsWith(currentQty + ' Kg')) {
+          btn.className = 'preset-btn px-space-sm h-touch-target-min rounded-lg bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-semibold transition-colors shadow-sm';
+        } else {
+          btn.className = 'preset-btn px-space-sm h-touch-target-min rounded-lg bg-surface-container-lowest hover:bg-surface-container font-label-md text-label-md text-on-surface transition-colors shadow-sm';
+        }
+      });
+    }
+
+    function showError() {
+      document.getElementById('quantity-error').classList.remove('hidden');
+    }
+
+    function hideError() {
+      document.getElementById('quantity-error').classList.add('hidden');
+    }
+
+    function changeThumbnail(el, type) {
+      document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+        btn.classList.remove('ring-2', 'ring-primary-container', 'opacity-100');
+        btn.classList.add('opacity-70');
+      });
+      el.classList.add('ring-2', 'ring-primary-container', 'opacity-100');
+      el.classList.remove('opacity-70');
+    }
+
+    function handleOrderSubmit() {
+      const qtyInput = document.getElementById('quantity-input');
+      const qty = parseInt(qtyInput.value);
+
+      if (isNaN(qty) || qty < MIN_QUANTITY || qty > MAX_STOCK) {
+        showError();
+        qtyInput.focus();
+        return;
+      }
+
+      const totalVal = (qty * UNIT_PRICE) + SHIPPING_COST;
+      const confirmModalText = `¡Confirmación de Pedido Directo!\n\nProducto: Tomate Chonto Orgánico\nCantidad: ${qty} Kg\nProductor: Don Gustavo Morales (Finca Bella Vista)\nTotal Transparente: ${formatCOP(totalVal)} COP\n\n¿Deseas continuar a la selección de método de pago y dirección de entrega?`;
+
+      if (confirm(confirmModalText)) {
+        alert('Pedido registrado con éxito. Te hemos asignado el turno de recolección de hoy.');
+      }
+    }
+
+    // Initialize display values on load
+    document.addEventListener('DOMContentLoaded', () => {
+      calculateOrder(15);
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-auto shadow-[0_-4px_12px_rgba(0,0,0,0.03)]"><div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-2xl"><div><div class="flex items-center gap-space-xs mb-space-sm"><img alt="Logo Del Campo a Tus Manos" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwykc_W-YnzN53R68VKZZiTcqTN6xY_XLoDQVFcun0AV-Sz9FVhtVB9vbfQobaT6besaAs8CqJnRIES_Ksj_95hXhw64tUoJL_HQtyFH7Qy2Xx4EF49mQRfG0zys6OvRYmorJ-J51L5xL_HH48jX-DYJclTILm9VzNT8jp3Jt3A6frPCqd8Vaok6gVDJ0mJfDXWfNNBHpKyCX6dZVxDnhUlQxiN8WjmJ8yhri7LvYOhPyzfKQaeB_E3w"/><span class="font-headline-sm text-headline-sm text-primary-container font-bold">Del Campo a Tus Manos</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md leading-relaxed">Conectamos de forma directa, transparente y justa a las familias campesinas y productoras agrícolas con los hogares y negocios del país.</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs bg-surface-container-low rounded-xl text-primary-container font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">verified</span>Comercio Justo Certificado</div></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Mercado y Rutas</h3><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary-container transition-colors" data-path="catalogo" href="#">Catálogo de Cosechas</a></li><li><a class="hover:text-primary-container transition-colors" data-path="productores" href="#">Directorio de Fincas</a></li><li><a class="hover:text-primary-container transition-colors" data-path="como-funciona" href="#">Metodología de Entrega</a></li><li><a class="hover:text-primary-container transition-colors" data-path="precios-transparentes" href="#">Precios Justos en Origen</a></li></ul></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Comunidad Campesina</h3><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary-container transition-colors" data-path="panel-de-productor" href="#">Ingreso para Agricultores</a></li><li><a class="hover:text-primary-container transition-colors" data-path="registro-productor" href="#">Inscribir mi Parcela o Finca</a></li><li><a class="hover:text-primary-container transition-colors" data-path="soporte-rural" href="#">Asistencia Telefónica Rural</a></li><li><a class="hover:text-primary-container transition-colors" data-path="preguntas-frecuentes" href="#">Preguntas Frecuentes</a></li></ul></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Atención al Usuario</h3><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Línea directa campesina disponible por llamada y mensajería en zonas rurales.</p><div class="flex items-center gap-space-xs text-primary-container font-label-lg text-label-lg mb-space-2xs"><span class="material-symbols-outlined text-[20px]">call</span><span>01 8000 420 420</span></div><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[20px]">mail</span><span>contacto@delcampoatusmanos.org</span></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant text-center sm:text-left">© 2024 Del Campo a Tus Manos. Sembrando equidad, cosechando bienestar.</p><div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-on-surface transition-colors" data-path="terminos" href="#">Términos</a><a class="hover:text-on-surface transition-colors" data-path="privacidad" href="#">Privacidad</a><a class="hover:text-on-surface transition-colors" data-path="impacto-social" href="#">Impacto Social</a></div></div></div></footer></body></html>

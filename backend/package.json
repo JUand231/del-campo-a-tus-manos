@@ -1,0 +1,36 @@
+{
+  "name": "del-campo-a-tus-manos-backend",
+  "version": "1.0.0",
+  "description": "API REST MVC desacoplada para Del Campo a Tus Manos (RF-01 a RF-09)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "init-db": "node database/init_db.js",
+    "test": "node ../tests/test_rf_suite.js"
+  },
+  "keywords": [
+    "del-campo-a-tus-manos",
+    "agro",
+    "mvp",
+    "sena",
+    "adso",
+    "mysql",
+    "owasp"
+  ],
+  "author": "Equipo Del Campo a Tus Manos",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.7",
+    "nodemailer": "^10.0.1"
+  },
+  "overrides": {
+    "qs": "6.16.0"
+  }
+}

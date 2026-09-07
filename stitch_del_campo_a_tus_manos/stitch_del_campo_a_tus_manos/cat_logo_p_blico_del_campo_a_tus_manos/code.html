@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Del Campo a Tus Manos</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed": "#a3f69c", "secondary-fixed": "#ffdbcf", "tertiary-fixed-dim": "#a5c8ff", "on-surface": "#1b1c1c", "secondary": "#a83900", "tertiary-container": "#006eca", "secondary-fixed-dim": "#ffb59a", "error": "#ba1a1a", "outline-variant": "#bfcaba", "on-error-container": "#93000a", "surface-dim": "#dbdad9", "tertiary": "#00569f", "on-secondary-fixed-variant": "#802a00", "inverse-primary": "#88d982", "surface-container-low": "#f5f3f3", "inverse-on-surface": "#f2f0f0", "on-primary-fixed": "#002204", "surface-variant": "#e4e2e2", "on-tertiary-fixed-variant": "#004786", "on-primary": "#ffffff", "outline": "#707a6c", "on-secondary-fixed": "#380d00", "tertiary-fixed": "#d4e3ff", "on-error": "#ffffff", "surface-bright": "#fbf9f8", "surface-container-lowest": "#ffffff", "surface-container-high": "#e9e8e7", "on-primary-fixed-variant": "#005312", "error-container": "#ffdad6", "primary": "#0d631b", "background": "#fbf9f8", "on-primary-container": "#cbffc2", "surface-container-highest": "#e4e2e2", "on-surface-variant": "#40493d", "on-background": "#1b1c1c", "surface": "#fbf9f8", "primary-fixed-dim": "#88d982", "on-tertiary": "#ffffff", "inverse-surface": "#303031", "surface-container": "#efeded", "secondary-container": "#fc6018", "on-secondary-container": "#531800", "on-secondary": "#ffffff", "surface-tint": "#1b6d24", "on-tertiary-container": "#ebf1ff", "on-tertiary-fixed": "#001c3a", "primary-container": "#2e7d32" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-desktop": "2rem", "space-xs": "0.5rem", "margin-mobile": "1rem", "space-md": "1rem", "touch-target-min": "2.75rem", "gutter-desktop": "1.5rem", "space-sm": "0.75rem", "space-2xl": "3rem", "space-xl": "2rem", "space-lg": "1.5rem", "space-2xs": "0.25rem", "gutter-mobile": "1rem" }, "fontFamily": { "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "label-lg": ["Inter"], "headline-sm": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "headline-lg-mobile": ["Inter"], "display-lg-mobile": ["Inter"], "body-sm": ["Inter"], "title-md": ["Inter"] }, "fontSize": { "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><a class="flex items-center gap-space-xs focus-visible:outline-2 focus-visible:outline-primary-container rounded-lg" data-path="inicio" href="#"><img alt="Logo Del Campo a Tus Manos" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwykc_W-YnzN53R68VKZZiTcqTN6xY_XLoDQVFcun0AV-Sz9FVhtVB9vbfQobaT6besaAs8CqJnRIES_Ksj_95hXhw64tUoJL_HQtyFH7Qy2Xx4EF49mQRfG0zys6OvRYmorJ-J51L5xL_HH48jX-DYJclTILm9VzNT8jp3Jt3A6frPCqd8Vaok6gVDJ0mJfDXWfNNBHpKyCX6dZVxDnhUlQxiN8WjmJ8yhri7LvYOhPyzfKQaeB_E3w"/><span class="font-headline-sm text-headline-sm text-primary-container font-bold tracking-tight hidden sm:inline-block">Del Campo a Tus Manos</span></a></div><div class="hidden md:flex flex-1 max-w-md mx-space-sm"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-touch-target-min pl-10 pr-space-md bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Buscar frutas, hortalizas, tubérculos..." type="search"/></div></div><nav class="hidden xl:flex items-center gap-space-md" data-active-classes="text-primary-container font-headline-sm"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="catalogo" href="#">Catálogo</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="como-funciona" href="#">Cómo Funciona</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="productores" href="#">Productores</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="mis-pedidos" href="#">Mis Pedidos</a></nav><div class="flex items-center gap-space-xs sm:gap-space-sm shrink-0"><a class="hidden lg:inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-primary-container font-label-lg text-label-lg transition-colors" data-path="panel-de-productor" href="#"><span class="material-symbols-outlined mr-1 text-[18px]">agriculture</span>Panel de Productor</a><a class="inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="iniciar-sesion" href="#">Ingresar</a><a class="inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.05)]" data-path="registro" href="#">Registrarse</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-2xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface flex-grow"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-surface-container-low py-space-2xl px-margin-mobile lg:px-margin-desktop">
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-secondary-fixed/40 blur-2xl pointer-events-none"></div>
+<div class="relative max-w-[1200px] mx-auto flex flex-col items-center text-center">
+<!-- Origin Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-md text-label-md text-primary font-bold tracking-wide uppercase">Cosecha Directa · Temporada 2024</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface font-extrabold max-w-4xl tracking-tight mb-space-md leading-tight">
+        Cosechas frescas del campo directo a tu mesa, <span class="text-primary">sin intermediarios</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-space-xl">
+        Apoya a las familias campesinas y compra frutas, verduras, tubérculos y granos recolectados el mismo día con precio justo y transparencia total.
+      </p>
+<!-- Trust Badges -->
+<div class="flex flex-wrap items-center justify-center gap-space-md mb-space-2xl">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">agriculture</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">100% Cosecha Local</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">payments</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Pago Seguro al Productor</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">local_shipping</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Entrega Garantizada</span>
+</div>
+</div>
+<!-- Prominent Filter / Search Console -->
+<div class="w-full max-w-3xl bg-surface-container-lowest p-space-xs sm:p-space-sm rounded-full shadow-md">
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-xs">
+<!-- Text Query -->
+<div class="flex-1 flex items-center px-space-md bg-surface-container-low rounded-xl h-touch-target-min">
+<span class="material-symbols-outlined text-outline text-[22px] mr-space-xs">search</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" id="liveSearchInput" placeholder="¿Qué producto buscas hoy? Ej. Papa criolla, Aguacate..." type="text"/>
+</div>
+<!-- Region Selector -->
+<div class="flex items-center px-space-sm bg-surface-container-low rounded-xl h-touch-target-min">
+<span class="material-symbols-outlined text-primary text-[20px] mr-space-2xs">location_on</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface-variant focus:outline-none cursor-pointer pr-space-xs" id="regionSelector">
+<option value="todos">Toda Colombia</option>
+<option value="Boyacá">Boyacá</option>
+<option value="Cundinamarca">Cundinamarca</option>
+<option value="Antioquia">Antioquia</option>
+<option value="Santander">Santander</option>
+</select>
+</div>
+<!-- Action Button -->
+<button class="h-touch-target-min px-space-xl bg-secondary hover:bg-secondary-container active:scale-[0.98] transition-all text-on-secondary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-space-xs shadow-sm" id="searchSubmitBtn">
+<span>Explorar</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Controls Bar: Chips & Sorting -->
+<section class="w-full bg-surface py-space-lg px-margin-mobile lg:px-margin-desktop sticky top-20 z-30 shadow-sm backdrop-blur-md bg-surface/95">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<!-- Category Chips Scrollable -->
+<div class="flex items-center gap-space-xs overflow-x-auto w-full md:w-auto pb-space-2xs scrollbar-none" id="categoriesChips">
+<button class="category-chip px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-2xs shrink-0 bg-primary text-on-primary shadow-sm" data-category="todos">
+<span class="material-symbols-outlined text-[18px]">grain</span>
+<span>Todos</span>
+<span class="text-on-primary/80 text-label-sm">(48)</span>
+</button>
+<button class="category-chip px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-2xs shrink-0 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="frutas">
+<span class="material-symbols-outlined text-[18px]">nutrition</span>
+<span>Frutas Frescas</span>
+<span class="text-outline text-label-sm">(15)</span>
+</button>
+<button class="category-chip px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-2xs shrink-0 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="hortalizas">
+<span class="material-symbols-outlined text-[18px]">psychiatry</span>
+<span>Hortalizas &amp; Verduras</span>
+<span class="text-outline text-label-sm">(18)</span>
+</button>
+<button class="category-chip px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-2xs shrink-0 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="tuberculos">
+<span class="material-symbols-outlined text-[18px]">spa</span>
+<span>Tubérculos &amp; Raíces</span>
+<span class="text-outline text-label-sm">(8)</span>
+</button>
+<button class="category-chip px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-2xs shrink-0 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="cafe">
+<span class="material-symbols-outlined text-[18px]">coffee</span>
+<span>Café &amp; Cacao</span>
+<span class="text-outline text-label-sm">(7)</span>
+</button>
+<button class="category-chip px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-2xs shrink-0 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="lacteos">
+<span class="material-symbols-outlined text-[18px]">egg</span>
+<span>Lácteos &amp; Huevos</span>
+<span class="text-outline text-label-sm">(6)</span>
+</button>
+</div>
+<!-- Sorters & Demo Modes -->
+<div class="flex items-center justify-between w-full md:w-auto gap-space-sm shrink-0">
+<div class="flex items-center gap-space-2xs bg-surface-container-lowest px-space-sm py-space-2xs rounded-xl shadow-sm">
+<span class="font-label-sm text-label-sm text-outline hidden sm:inline">Ordenar:</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer" id="sortBy">
+<option value="recientes">Más recientes</option>
+<option value="precio-menor">Menor precio</option>
+<option value="precio-mayor">Mayor precio</option>
+<option value="distancia">Menor distancia</option>
+</select>
+</div>
+<!-- Simulation Toggles for RF-03 Empty/Skeleton states -->
+<div class="flex items-center gap-space-2xs bg-surface-container p-1 rounded-xl">
+<button class="px-space-xs py-1 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-primary shadow-xs" id="viewGridNormal">Activo</button>
+<button class="px-space-xs py-1 rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" id="viewGridSkeleton">Cargando</button>
+<button class="px-space-xs py-1 rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" id="viewGridEmpty">Vacío</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Counter & Active Filters Tag -->
+<div class="max-w-[1200px] mx-auto w-full px-margin-mobile lg:px-margin-desktop pt-space-md pb-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-on-surface">Cosechas en Oferta Directa</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-space-xs py-space-2xs rounded-md" id="resultsCountBadge">6 disponibles</span>
+</div>
+<div class="hidden font-label-sm text-label-sm text-secondary flex items-center gap-space-2xs cursor-pointer hover:underline" id="filterTagIndicator">
+<span>Limpiar filtros</span>
+<span class="material-symbols-outlined text-[14px]">close</span>
+</div>
+</div>
+<!-- Main Catalog Grid Area -->
+<div class="max-w-[1200px] mx-auto w-full px-margin-mobile lg:px-margin-desktop py-space-md">
+<!-- NORMAL PRODUCTS GRID -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter-desktop" id="productsGrid">
+<!-- Card 1: Tomate Chonto -->
+<article class="product-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-category="hortalizas" data-name="tomate chonto campesino" data-price="3800" data-region="Cundinamarca">
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" data-alt="A vibrant, fresh cluster of deep red ripe chonto tomatoes resting in a rustic wooden agricultural crate under natural morning sunlight. Soft dew drops on the skins, with subtle green vine stems still attached. Earthy farm ambiance with natural depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd1oCQFDOuY5-4zNBpN45CLtDumHDJuqdUuRPCRuGB9d4AXILVmim4U0h8BJPI0KK797JC-16e82QR48gzHoMpBHntXYbHV4BwkEzd-qHByKhORqLKnl3xhG68T7joiiO8JOM4UHP9eCcx6wHVLi2DHQoXYohlw92K6xZzp_vycOnS--rF7zef8Qc_X0huNQhWkfusEWkAf2u0yEAa7DSJeYu6_uNhwpJwN89FhZGF9vCKgDk2BOtYeQ"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/95 backdrop-blur-sm px-space-xs py-space-2xs rounded-lg shadow-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Fusagasugá, Cundinamarca</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-primary text-on-primary font-label-sm text-label-sm px-space-xs py-space-2xs rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Cosechado hoy</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Tomate Chonto Campesino</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">person</span>
+<span>Don Hernando Gómez • Finca La Esperanza</span>
+</p>
+<div class="flex items-center gap-space-xs mt-space-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-outline">Stock disponible: 180 Kg</span>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-outline block leading-none mb-1">Precio justo en origen</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">$3.800 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ Kg</span></span>
+</div>
+<button class="add-to-cart-btn h-touch-target-min px-space-md bg-secondary hover:bg-secondary-container active:scale-95 transition-all text-on-secondary font-label-lg text-label-lg rounded-xl flex items-center gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+<span>Comprar</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2: Papa Criolla -->
+<article class="product-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-category="tuberculos" data-name="papa criolla lavada" data-price="4500" data-region="Boyacá">
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" data-alt="Golden small Andean native yellow potatoes freshly harvested and washed, piled inside a traditional woven esparto basket. Rich dark highland loam soils in the soft blurred background with crisp golden hour agricultural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4e3PgjcWwvhS30YqlWsmyTFSG-9u8n0Q4_9OU5KRZpMnyc7myHN4k5e7T4jLUmfHrvw2FKoTJlAAvbIVrMM3HYSR0LwFVZwlssbbcNSpll1LCZiNQJgLzOlgXMXQbKA5PNE302LNiKmeVgM10RpHDNav2MKemDq97zVrYy76eK9G5aYA8vbL4c3anS5phP6L-vON6MB7xCOqWY16D8MRcyN-VieNaJwiHH_lIlomJUKfO9qVNHmry2A"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/95 backdrop-blur-sm px-space-xs py-space-2xs rounded-lg shadow-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Ventaquemada, Boyacá</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-primary text-on-primary font-label-sm text-label-sm px-space-xs py-space-2xs rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Recogido hace 4h</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Papa Criolla Lavada Especial</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">person</span>
+<span>María Helena Roa • Parcela San José</span>
+</p>
+<div class="flex items-center gap-space-xs mt-space-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-outline">Stock disponible: 320 Kg</span>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-outline block leading-none mb-1">Precio justo en origen</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">$4.500 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ Kg</span></span>
+</div>
+<button class="add-to-cart-btn h-touch-target-min px-space-md bg-secondary hover:bg-secondary-container active:scale-95 transition-all text-on-secondary font-label-lg text-label-lg rounded-xl flex items-center gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+<span>Comprar</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Aguacate Hass -->
+<article class="product-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-category="frutas" data-name="aguacate hass exportacion" data-price="6200" data-region="Antioquia">
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" data-alt="Rich textured Hass avocados, one whole with dark pebbled skin and one sliced open showing creamy bright lime-green flesh and round seed. Clean farm table setting in lush green Colombian mountain foothills." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPp1lCZ5je1XIoqzvMNxGnmN6G5ErXx_B1hlt9TAZeRNXF5A8lKw2zkppECXsSf9TjqPPaVVxcjVEeKElYaKK7G6bZgX0qIUAhe8AHcEce_duXzKCDCtxRzsWcZJZCZ7rMz2M9_EqNnlfl6TSjp6sRHC7pHQ1UCJ4JJfWsvIVjYpUTCqeTIUWwV3DA0vmwES90fVzBcc9sZx7gNwZl-k-O8xkDQzMtXFVUew0Sdee6zI96sKUQ_h2CJQ"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/95 backdrop-blur-sm px-space-xs py-space-2xs rounded-lg shadow-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">El Peñol, Antioquia</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-space-xs py-space-2xs rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+<span>Maduración óptima</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Aguacate Hass Seleccionado</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">person</span>
+<span>Carlos Mario Duque • Hacienda Los Cedros</span>
+</p>
+<div class="flex items-center gap-space-xs mt-space-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-outline">Stock disponible: 95 Kg</span>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-outline block leading-none mb-1">Precio justo en origen</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">$6.200 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ Kg</span></span>
+</div>
+<button class="add-to-cart-btn h-touch-target-min px-space-md bg-secondary hover:bg-secondary-container active:scale-95 transition-all text-on-secondary font-label-lg text-label-lg rounded-xl flex items-center gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+<span>Comprar</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 4: Café Especial de Origen -->
+<article class="product-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-category="cafe" data-name="cafe especial lavado castillo" data-price="26000" data-region="Santander">
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" data-alt="Artisanal roasted whole coffee beans spilling from a natural kraft paper pouch next to vibrant red coffee cherries picked from trees. Warm morning coffee plantation lighting with natural warm brown and emerald green colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKqLJOq_HlMkdyqcEduFBDJcexkZAfBFj9Xtef4vcCCbrEqjhXX40NF_blWlnWYU0_Ht73zQcWuF_KYh16jdNewqB1eg1JeWieQ7r5XCL-sZqsjuzNfAG2UfEKzgT5-kCMbmVNufd_5KNY_bWxlnS9s6lLT17UofKs5RlV4SlGLNeMXFIAIIVcqp_01cPIGN9FixIhLvFXZiaJEgwLWarcIguO4NL-cBsKfr33ldDeTusg83JJM7KflA"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/95 backdrop-blur-sm px-space-xs py-space-2xs rounded-lg shadow-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Piedecuesta, Santander</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-space-xs py-space-2xs rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">award_star</span>
+<span>86 Puntos SCA</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Café Especial Tostado Variedad Castillo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">person</span>
+<span>Familia Barajas • Finca El Roble</span>
+</p>
+<div class="flex items-center gap-space-xs mt-space-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-outline">Stock disponible: 40 Bolsas (500g)</span>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-outline block leading-none mb-1">Precio justo en origen</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">$26.000 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ 500g</span></span>
+</div>
+<button class="add-to-cart-btn h-touch-target-min px-space-md bg-secondary hover:bg-secondary-container active:scale-95 transition-all text-on-secondary font-label-lg text-label-lg rounded-xl flex items-center gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+<span>Comprar</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 5: Fresas de Cultivo -->
+<article class="product-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-category="frutas" data-name="fresas de altura dulces" data-price="9500" data-region="Cundinamarca">
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" data-alt="Lush, glossy deep crimson strawberries neatly arranged in a wooden basket. Pristine farm setting with soft green strawberry foliage, clean macro detail capturing individual seeds and fresh green calyx leaves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEiWUGFWkqRVOxSWBlEiUcOgdfsM_WdBkcdj3_bG-lj1WuceAdinmUEcUZn2eu3vQV-r-srqHQpZIb3nG3QCAIUZkTItf_PMiKu1jA-FUVWG7xtVeV7gMs5RQL_OxuWXiMbqcet6se8-axv7myNs3duyE9gIR4FYxAFQfuxOE2iBU56AYfzVRznEtuygYMZa75OC-9P_mLCQPc1JmRtnY6U-ygIH2fGgpYwbUMje3U-6OpHxOzRQ7QrA"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/95 backdrop-blur-sm px-space-xs py-space-2xs rounded-lg shadow-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Subachoque, Cundinamarca</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-primary text-on-primary font-label-sm text-label-sm px-space-xs py-space-2xs rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">eco</span>
+<span>Orgánico Certificado</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Fresas Dulces de Altura</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">person</span>
+<span>Javier Beltrán • Agrocolina Verde</span>
+</p>
+<div class="flex items-center gap-space-xs mt-space-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-outline">Stock disponible: 50 Canastillas</span>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-outline block leading-none mb-1">Precio justo en origen</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">$9.500 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ Libra</span></span>
+</div>
+<button class="add-to-cart-btn h-touch-target-min px-space-md bg-secondary hover:bg-secondary-container active:scale-95 transition-all text-on-secondary font-label-lg text-label-lg rounded-xl flex items-center gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+<span>Comprar</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 6: Mango Tommy -->
+<article class="product-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-category="frutas" data-name="mango tommy madurado al sol" data-price="4200" data-region="Cundinamarca">
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" data-alt="Sun-ripened Tommy Atkins mangoes displaying vivid sunset shades of red, orange, and golden yellow. One fruit cut into juicy checkerboard cubes on a light wooden cutting board outdoors with warm sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1xTtr73a77NCnPdu-HJ7ZjbHtjL1HEKXOuuxrFr8B3C9OjP8daZADPFmKL6OurW28bU7xgpTickudjEEnX7LQvbL6kQzNN3_HPWVAbC4Hj-pJW_gaXZAO_lPV3jHm6_RtfOkwVhQaWfrUM6ar4jCRFU5ab0zXnuHQ0LFTN1smEWVfJWC1OItO3cAj-WNWGCkUC8NTEvOrP_g-Ua1_AX-akFLtZ_LqOVREuMW-O3wy72Whn6JjDzqTPQ"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/95 backdrop-blur-sm px-space-xs py-space-2xs rounded-lg shadow-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Anapoima, Cundinamarca</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-primary text-on-primary font-label-sm text-label-sm px-space-xs py-space-2xs rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">sunny</span>
+<span>Cosecha al sol</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Mango Tommy Jugoso de Huerta</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">person</span>
+<span>Dora Inés Vargas • Parcela El Trébol</span>
+</p>
+<div class="flex items-center gap-space-xs mt-space-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-outline">Stock disponible: 150 Kg</span>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-outline block leading-none mb-1">Precio justo en origen</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">$4.200 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ Kg</span></span>
+</div>
+<button class="add-to-cart-btn h-touch-target-min px-space-md bg-secondary hover:bg-secondary-container active:scale-95 transition-all text-on-secondary font-label-lg text-label-lg rounded-xl flex items-center gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+<span>Comprar</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- SKELETON STATE (Simulated RF-03 Loading) -->
+<div class="hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter-desktop" id="skeletonState">
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm animate-pulse flex flex-col gap-space-sm">
+<div class="w-full aspect-[4/3] bg-surface-container-high rounded-lg"></div>
+<div class="h-4 bg-surface-container-high rounded w-3/4"></div>
+<div class="h-3 bg-surface-container-high rounded w-1/2"></div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container flex justify-between items-center">
+<div class="h-6 bg-surface-container-high rounded w-1/3"></div>
+<div class="h-10 bg-surface-container-high rounded-xl w-28"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm animate-pulse flex flex-col gap-space-sm">
+<div class="w-full aspect-[4/3] bg-surface-container-high rounded-lg"></div>
+<div class="h-4 bg-surface-container-high rounded w-2/3"></div>
+<div class="h-3 bg-surface-container-high rounded w-2/5"></div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container flex justify-between items-center">
+<div class="h-6 bg-surface-container-high rounded w-1/3"></div>
+<div class="h-10 bg-surface-container-high rounded-xl w-28"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm animate-pulse flex flex-col gap-space-sm">
+<div class="w-full aspect-[4/3] bg-surface-container-high rounded-lg"></div>
+<div class="h-4 bg-surface-container-high rounded w-4/5"></div>
+<div class="h-3 bg-surface-container-high rounded w-1/3"></div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container flex justify-between items-center">
+<div class="h-6 bg-surface-container-high rounded w-1/3"></div>
+<div class="h-10 bg-surface-container-high rounded-xl w-28"></div>
+</div>
+</div>
+</div>
+<!-- EMPTY STATE (RF-03 No Products Found) -->
+<div class="hidden flex-col items-center justify-center text-center py-space-2xl px-space-md bg-surface-container-lowest rounded-xl shadow-sm" id="emptyState">
+<div class="w-24 h-24 rounded-full bg-primary-fixed/40 flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-primary text-[48px]">yard</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">
+        Todavía no hay productos disponibles en esta categoría o zona
+      </h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg mb-space-lg">
+        Nuestros agricultores cosechan bajo demanda según los ciclos naturales de la tierra. Prueba cambiando el municipio o explorando otras categorías.
+      </p>
+<button class="h-touch-target-min px-space-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-xl flex items-center gap-space-xs shadow-sm" id="resetFiltersBtn">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Restablecer Filtros y Ver Todo</span>
+</button>
+</div>
+</div>
+<!-- Value Proposition Section: ¿Por qué comprar directo? -->
+<section class="w-full bg-surface-container-low py-space-2xl px-margin-mobile lg:px-margin-desktop mt-space-2xl">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-space-xl">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Comercio Transparente</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold mt-1 mb-space-xs">
+          ¿Por qué comprar directo al campesino?
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Construimos un puente libre de especulación que fortalece el campo y garantiza alimentos frescos y saludables para tu hogar.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+<!-- Prop 1: Precios Justos -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col items-start">
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed/50 flex items-center justify-center text-secondary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">balance</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Precios Justos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+            Hasta el 85% del valor pagado ingresa directamente a las manos del agricultor, asegurando una retribución digna por su labor diaria.
+          </p>
+<div class="mt-auto flex items-center gap-1 text-secondary font-label-md text-label-md">
+<span>Ver auditoría de precios</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Prop 2: Frescura 24 Horas -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col items-start">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">schedule</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Frescura de 24 Horas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+            Los productos no permanecen días almacenados en bodegas centrales. Se recolectan en la madrugada y viajan directo a tu puerta.
+          </p>
+<div class="mt-auto flex items-center gap-1 text-primary font-label-md text-label-md">
+<span>Rutas agro logísticas</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Prop 3: Trazabilidad Directa -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col items-start">
+<div class="w-14 h-14 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">badge</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Trazabilidad Total</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+            Conoces el nombre de la finca, la vereda de origen y los métodos agroecológicos usados en cada uno de los alimentos que consumes.
+          </p>
+<div class="mt-auto flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span>Conoce a los productores</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Client-side Script -->
+<script>
+    (function initCatalogLogic() {
+      const searchInput = document.getElementById('liveSearchInput');
+      const regionSelector = document.getElementById('regionSelector');
+      const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+      const chips = document.querySelectorAll('.category-chip');
+      const sortBy = document.getElementById('sortBy');
+      const productsGrid = document.getElementById('productsGrid');
+      const skeletonState = document.getElementById('skeletonState');
+      const emptyState = document.getElementById('emptyState');
+      const resultsCountBadge = document.getElementById('resultsCountBadge');
+      const filterTagIndicator = document.getElementById('filterTagIndicator');
+      const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+
+      const viewGridNormal = document.getElementById('viewGridNormal');
+      const viewGridSkeleton = document.getElementById('viewGridSkeleton');
+      const viewGridEmpty = document.getElementById('viewGridEmpty');
+
+      let currentCategory = 'todos';
+
+      function filterProducts() {
+        const query = searchInput.value.toLowerCase().trim();
+        const selectedRegion = regionSelector.value;
+        const cards = Array.from(productsGrid.querySelectorAll('.product-card'));
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const name = card.getAttribute('data-name');
+          const cat = card.getAttribute('data-category');
+          const reg = card.getAttribute('data-region');
+
+          const matchesQuery = !query || name.includes(query);
+          const matchesCategory = currentCategory === 'todos' || cat === currentCategory;
+          const matchesRegion = selectedRegion === 'todos' || reg === selectedRegion;
+
+          if (matchesQuery && matchesCategory && matchesRegion) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        resultsCountBadge.textContent = `${visibleCount} disponible${visibleCount === 1 ? '' : 's'}`;
+
+        if (visibleCount === 0) {
+          productsGrid.classList.add('hidden');
+          emptyState.classList.remove('hidden');
+          emptyState.classList.add('flex');
+        } else {
+          productsGrid.classList.remove('hidden');
+          emptyState.classList.add('hidden');
+          emptyState.classList.remove('flex');
+        }
+
+        const isFiltered = query !== '' || currentCategory !== 'todos' || selectedRegion !== 'todos';
+        if (isFiltered) {
+          filterTagIndicator.classList.remove('hidden');
+        } else {
+          filterTagIndicator.classList.add('hidden');
+        }
+      }
+
+      function sortProducts() {
+        const cards = Array.from(productsGrid.querySelectorAll('.product-card'));
+        const sortVal = sortBy.value;
+
+        cards.sort((a, b) => {
+          const priceA = parseInt(a.getAttribute('data-price'), 10);
+          const priceB = parseInt(b.getAttribute('data-price'), 10);
+
+          if (sortVal === 'precio-menor') return priceA - priceB;
+          if (sortVal === 'precio-mayor') return priceB - priceA;
+          return 0;
+        });
+
+        cards.forEach(card => productsGrid.appendChild(card));
+      }
+
+      function resetAll() {
+        searchInput.value = '';
+        regionSelector.value = 'todos';
+        currentCategory = 'todos';
+        sortBy.value = 'recientes';
+
+        chips.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          c.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+        });
+        const firstChip = document.querySelector('[data-category="todos"]');
+        if (firstChip) {
+          firstChip.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+          firstChip.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+        }
+
+        showNormalView();
+        filterProducts();
+      }
+
+      // Chip selector events
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => {
+            c.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            c.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+          });
+          chip.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+          chip.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+
+          currentCategory = chip.getAttribute('data-category');
+          showNormalView();
+          filterProducts();
+        });
+      });
+
+      searchInput.addEventListener('input', () => {
+        showNormalView();
+        filterProducts();
+      });
+
+      regionSelector.addEventListener('change', () => {
+        showNormalView();
+        filterProducts();
+      });
+
+      searchSubmitBtn.addEventListener('click', () => {
+        showNormalView();
+        filterProducts();
+      });
+
+      sortBy.addEventListener('change', sortProducts);
+      filterTagIndicator.addEventListener('click', resetAll);
+      resetFiltersBtn.addEventListener('click', resetAll);
+
+      // Simulation mode toggles
+      function showNormalView() {
+        viewGridNormal.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridNormal.classList.remove('text-on-surface-variant');
+
+        viewGridSkeleton.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridSkeleton.classList.add('text-on-surface-variant');
+
+        viewGridEmpty.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridEmpty.classList.add('text-on-surface-variant');
+
+        skeletonState.classList.add('hidden');
+        skeletonState.classList.remove('grid');
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+        productsGrid.classList.remove('hidden');
+      }
+
+      viewGridNormal.addEventListener('click', () => {
+        showNormalView();
+        filterProducts();
+      });
+
+      viewGridSkeleton.addEventListener('click', () => {
+        viewGridSkeleton.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridSkeleton.classList.remove('text-on-surface-variant');
+
+        viewGridNormal.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridNormal.classList.add('text-on-surface-variant');
+
+        viewGridEmpty.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridEmpty.classList.add('text-on-surface-variant');
+
+        productsGrid.classList.add('hidden');
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+        skeletonState.classList.remove('hidden');
+        skeletonState.classList.add('grid');
+      });
+
+      viewGridEmpty.addEventListener('click', () => {
+        viewGridEmpty.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridEmpty.classList.remove('text-on-surface-variant');
+
+        viewGridNormal.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridNormal.classList.add('text-on-surface-variant');
+
+        viewGridSkeleton.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+        viewGridSkeleton.classList.add('text-on-surface-variant');
+
+        productsGrid.classList.add('hidden');
+        skeletonState.classList.add('hidden');
+        skeletonState.classList.remove('grid');
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+      });
+
+      // Micro feedback on purchase buttons
+      document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const originalHTML = this.innerHTML;
+          this.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span><span>¡Añadido!</span>';
+          this.classList.remove('bg-secondary');
+          this.classList.add('bg-primary');
+          setTimeout(() => {
+            this.innerHTML = originalHTML;
+            this.classList.remove('bg-primary');
+            this.classList.add('bg-secondary');
+          }, 1500);
+        });
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-auto shadow-[0_-4px_12px_rgba(0,0,0,0.03)]"><div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-2xl"><div><div class="flex items-center gap-space-xs mb-space-sm"><img alt="Logo Del Campo a Tus Manos" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwykc_W-YnzN53R68VKZZiTcqTN6xY_XLoDQVFcun0AV-Sz9FVhtVB9vbfQobaT6besaAs8CqJnRIES_Ksj_95hXhw64tUoJL_HQtyFH7Qy2Xx4EF49mQRfG0zys6OvRYmorJ-J51L5xL_HH48jX-DYJclTILm9VzNT8jp3Jt3A6frPCqd8Vaok6gVDJ0mJfDXWfNNBHpKyCX6dZVxDnhUlQxiN8WjmJ8yhri7LvYOhPyzfKQaeB_E3w"/><span class="font-headline-sm text-headline-sm text-primary-container font-bold">Del Campo a Tus Manos</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md leading-relaxed">Conectamos de forma directa, transparente y justa a las familias campesinas y productoras agrícolas con los hogares y negocios del país.</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs bg-surface-container-low rounded-xl text-primary-container font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">verified</span>Comercio Justo Certificado</div></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Mercado y Rutas</h3><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary-container transition-colors" data-path="catalogo" href="#">Catálogo de Cosechas</a></li><li><a class="hover:text-primary-container transition-colors" data-path="productores" href="#">Directorio de Fincas</a></li><li><a class="hover:text-primary-container transition-colors" data-path="como-funciona" href="#">Metodología de Entrega</a></li><li><a class="hover:text-primary-container transition-colors" data-path="precios-transparentes" href="#">Precios Justos en Origen</a></li></ul></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Comunidad Campesina</h3><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary-container transition-colors" data-path="panel-de-productor" href="#">Ingreso para Agricultores</a></li><li><a class="hover:text-primary-container transition-colors" data-path="registro-productor" href="#">Inscribir mi Parcela o Finca</a></li><li><a class="hover:text-primary-container transition-colors" data-path="soporte-rural" href="#">Asistencia Telefónica Rural</a></li><li><a class="hover:text-primary-container transition-colors" data-path="preguntas-frecuentes" href="#">Preguntas Frecuentes</a></li></ul></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Atención al Usuario</h3><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Línea directa campesina disponible por llamada y mensajería en zonas rurales.</p><div class="flex items-center gap-space-xs text-primary-container font-label-lg text-label-lg mb-space-2xs"><span class="material-symbols-outlined text-[20px]">call</span><span>01 8000 420 420</span></div><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[20px]">mail</span><span>contacto@delcampoatusmanos.org</span></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant text-center sm:text-left">© 2024 Del Campo a Tus Manos. Sembrando equidad, cosechando bienestar.</p><div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-on-surface transition-colors" data-path="terminos" href="#">Términos</a><a class="hover:text-on-surface transition-colors" data-path="privacidad" href="#">Privacidad</a><a class="hover:text-on-surface transition-colors" data-path="impacto-social" href="#">Impacto Social</a></div></div></div></footer></body></html>

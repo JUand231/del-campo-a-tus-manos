@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Del Campo a Tus Manos</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed": "#a3f69c", "secondary-fixed": "#ffdbcf", "tertiary-fixed-dim": "#a5c8ff", "on-surface": "#1b1c1c", "secondary": "#a83900", "tertiary-container": "#006eca", "secondary-fixed-dim": "#ffb59a", "error": "#ba1a1a", "outline-variant": "#bfcaba", "on-error-container": "#93000a", "surface-dim": "#dbdad9", "tertiary": "#00569f", "on-secondary-fixed-variant": "#802a00", "inverse-primary": "#88d982", "surface-container-low": "#f5f3f3", "inverse-on-surface": "#f2f0f0", "on-primary-fixed": "#002204", "surface-variant": "#e4e2e2", "on-tertiary-fixed-variant": "#004786", "on-primary": "#ffffff", "outline": "#707a6c", "on-secondary-fixed": "#380d00", "tertiary-fixed": "#d4e3ff", "on-error": "#ffffff", "surface-bright": "#fbf9f8", "surface-container-lowest": "#ffffff", "surface-container-high": "#e9e8e7", "on-primary-fixed-variant": "#005312", "error-container": "#ffdad6", "primary": "#0d631b", "background": "#fbf9f8", "on-primary-container": "#cbffc2", "surface-container-highest": "#e4e2e2", "on-surface-variant": "#40493d", "on-background": "#1b1c1c", "surface": "#fbf9f8", "primary-fixed-dim": "#88d982", "on-tertiary": "#ffffff", "inverse-surface": "#303031", "surface-container": "#efeded", "secondary-container": "#fc6018", "on-secondary-container": "#531800", "on-secondary": "#ffffff", "surface-tint": "#1b6d24", "on-tertiary-container": "#ebf1ff", "on-tertiary-fixed": "#001c3a", "primary-container": "#2e7d32" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-desktop": "2rem", "space-xs": "0.5rem", "margin-mobile": "1rem", "space-md": "1rem", "touch-target-min": "2.75rem", "gutter-desktop": "1.5rem", "space-sm": "0.75rem", "space-2xl": "3rem", "space-xl": "2rem", "space-lg": "1.5rem", "space-2xs": "0.25rem", "gutter-mobile": "1rem" }, "fontFamily": { "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "label-lg": ["Inter"], "headline-sm": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "headline-lg-mobile": ["Inter"], "display-lg-mobile": ["Inter"], "body-sm": ["Inter"], "title-md": ["Inter"] }, "fontSize": { "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><a class="flex items-center gap-space-xs focus-visible:outline-2 focus-visible:outline-primary-container rounded-lg" data-path="inicio" href="#"><img alt="Logo Del Campo a Tus Manos" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwykc_W-YnzN53R68VKZZiTcqTN6xY_XLoDQVFcun0AV-Sz9FVhtVB9vbfQobaT6besaAs8CqJnRIES_Ksj_95hXhw64tUoJL_HQtyFH7Qy2Xx4EF49mQRfG0zys6OvRYmorJ-J51L5xL_HH48jX-DYJclTILm9VzNT8jp3Jt3A6frPCqd8Vaok6gVDJ0mJfDXWfNNBHpKyCX6dZVxDnhUlQxiN8WjmJ8yhri7LvYOhPyzfKQaeB_E3w"/><span class="font-headline-sm text-headline-sm text-primary-container font-bold tracking-tight hidden sm:inline-block">Del Campo a Tus Manos</span></a></div><div class="hidden md:flex flex-1 max-w-md mx-space-sm"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-touch-target-min pl-10 pr-space-md bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Buscar frutas, hortalizas, tubérculos..." type="search"/></div></div><nav class="hidden xl:flex items-center gap-space-md" data-active-classes="text-primary-container font-headline-sm"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="catalogo" href="#">Catálogo</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="como-funciona" href="#">Cómo Funciona</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="productores" href="#">Productores</a><a aria-current="page" class="transition-colors py-space-xs text-primary-container font-headline-sm" data-path="mis-pedidos" href="#">Mis Pedidos</a></nav><div class="flex items-center gap-space-xs sm:gap-space-sm shrink-0"><a class="hidden lg:inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-primary-container font-label-lg text-label-lg transition-colors" data-path="panel-de-productor" href="#"><span class="material-symbols-outlined mr-1 text-[18px]">agriculture</span>Panel de Productor</a><a class="inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="iniciar-sesion" href="#">Ingresar</a><a class="inline-flex items-center justify-center h-touch-target-min px-space-md rounded-xl bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.05)]" data-path="registro" href="#">Registrarse</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-2xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface flex-grow"><div class="flex flex-col w-full">
+<div class="max-w-[1200px] mx-auto w-full px-margin-mobile lg:px-margin-desktop py-space-xl">
+<!-- Header Context & Title -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div class="space-y-space-2xs">
+<div class="inline-flex items-center gap-space-2xs text-primary font-label-md text-label-md tracking-wider uppercase">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Panel del Comprador</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Mis Pedidos</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Monitorea tus cosechas solicitadas, el estado de preparación y coordina directamente con familias campesinas sin intermediarios.
+        </p>
+</div>
+<!-- Quick Metrics Summary Card -->
+<div class="flex items-center gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cosechas Activas</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">3 pedidos</span>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Impacto Directo</span>
+<span class="font-headline-md text-headline-md text-secondary font-bold">100% al Campo</span>
+</div>
+</div>
+</div>
+<!-- Filter Chips / Tabs -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-xs mb-space-xl">
+<button class="filter-tab shrink-0 h-touch-target-min px-space-md rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg transition-all shadow-sm flex items-center gap-space-xs" id="tab-all" onclick="filterOrders('all')">
+<span>Todos</span>
+<span class="px-space-2xs py-0.5 rounded-full bg-surface-container-lowest/20 text-on-primary font-label-sm text-label-sm">5</span>
+</button>
+<button class="filter-tab shrink-0 h-touch-target-min px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-lg text-label-lg transition-all flex items-center gap-space-xs" id="tab-pendiente" onclick="filterOrders('pendiente')">
+<span>Pendientes</span>
+<span class="px-space-2xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">1</span>
+</button>
+<button class="filter-tab shrink-0 h-touch-target-min px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-lg text-label-lg transition-all flex items-center gap-space-xs" id="tab-proceso" onclick="filterOrders('proceso')">
+<span>En Proceso</span>
+<span class="px-space-2xs py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">2</span>
+</button>
+<button class="filter-tab shrink-0 h-touch-target-min px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-lg text-label-lg transition-all flex items-center gap-space-xs" id="tab-entregado" onclick="filterOrders('entregado')">
+<span>Entregados</span>
+<span class="px-space-2xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">2</span>
+</button>
+<button class="filter-tab shrink-0 h-touch-target-min px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-lg text-label-lg transition-all flex items-center gap-space-xs" id="tab-cancelado" onclick="filterOrders('cancelado')">
+<span>Cancelados</span>
+<span class="px-space-2xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">0</span>
+</button>
+</div>
+<!-- Orders Container -->
+<div class="flex flex-col gap-space-lg" id="orders-list">
+<!-- ORDER 1: PENDIENTE -->
+<article class="order-card bg-surface-container-lowest rounded-xl shadow-md p-space-md md:p-space-lg transition-all duration-300" data-status="pendiente">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">#DCM-8912</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hoy, 10:45 AM</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              Pendiente de Confirmación
+            </span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Pedido:</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">$95.000 COP</span>
+</div>
+</div>
+<!-- Progress Timeline Micro-graphic -->
+<div class="bg-surface-container-low rounded-xl p-space-sm mb-space-md">
+<div class="flex items-center justify-between gap-space-2xs relative">
+<div class="absolute top-1/2 left-4 right-4 -translate-y-1/2 h-1 bg-surface-variant -z-0"></div>
+<div class="absolute top-1/2 left-4 w-1/4 -translate-y-1/2 h-1 bg-secondary -z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-1 bg-surface-container-low px-2">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm">1</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold text-center">Registrado</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-1 bg-surface-container-low px-2">
+<div class="w-7 h-7 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-sm">2</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Cosecha</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-1 bg-surface-container-low px-2">
+<div class="w-7 h-7 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-sm">3</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">En Ruta</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-1 bg-surface-container-low px-2">
+<div class="w-7 h-7 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-sm">4</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Entregado</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md pt-space-xs">
+<!-- Producer & Farm Profile -->
+<div class="lg:col-span-4 flex items-center gap-space-sm p-space-sm bg-surface-container-low rounded-xl">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Portrait of Don Gustavo Morales, an authentic smiling Colombian Andean farmer wearing a traditional straw hat and poncho, sunlit farm background in Subachoque, high realism, warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ezZbJPvGWIfifFADR0_vJp4OqfcIzJrAN7SJwTDSXYkzRyr0TL8_8EYEg3Ey7DyIemrFsABcnyl2n-JA3OD2AfBTrpCHYu3PX_nhfIAe_ue29cc0tNS5yK6zsQYsuGZtdi-pmo1rNBX92Pds2jdMiQUXYr8X8TB_43nHAmWWzV_2FvU45uZpSBvk60ZOkoE5IycD9BlUJJc0w11AIFyaw_izLUCM43eirNuEvH4ouEPj2tyUCWXD5A"/>
+</div>
+<div class="min-w-0 flex-1">
+<div class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-primary">Productor Campesino</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface font-semibold truncate">Don Gustavo Morales</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Finca Bella Vista • Subachoque, Cund.</p>
+</div>
+</div>
+<!-- Product Details List -->
+<div class="lg:col-span-5 flex flex-col justify-center gap-space-2xs bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Detalle de Canasta Campesina:</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">spa</span>
+<p class="font-body-sm text-body-sm text-on-surface"><strong>15 Kg</strong> Tomate Chonto Madurado en Rama</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">eco</span>
+<p class="font-body-sm text-body-sm text-on-surface"><strong>5 Kg</strong> Aguacate Hass Selección Finca</p>
+</div>
+</div>
+<!-- Action Controls (Cancellation Allowed) -->
+<div class="lg:col-span-3 flex flex-col justify-center gap-space-xs">
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-secondary font-medium">Cancelación habilitada sin costo</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="w-full h-touch-target-min px-space-md rounded-xl bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-lg text-label-lg transition-all flex items-center justify-center gap-space-2xs shadow-sm" onclick="openCancelModal('DCM-8912', 'Don Gustavo Morales')">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+<span>Cancelar Pedido</span>
+</button>
+</div>
+<a class="h-touch-target-min px-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-space-2xs" href="#">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>Ver Remisión</span>
+</a>
+</div>
+</div>
+</article>
+<!-- ORDER 2: EN PROCESO -->
+<article class="order-card bg-surface-container-lowest rounded-xl shadow-md p-space-md md:p-space-lg transition-all duration-300" data-status="proceso">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">#DCM-8740</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ayer, 3:20 PM</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary animate-spin">autorenew</span>
+              En Proceso: Recolección y Empaque
+            </span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Pedido:</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">$82.000 COP</span>
+</div>
+</div>
+<!-- Progress Timeline Micro-graphic -->
+<div class="bg-surface-container-low rounded-xl p-space-sm mb-space-md">
+<div class="flex items-center justify-between gap-space-2xs relative">
+<div class="absolute top-1/2 left-4 right-4 -translate-y-1/2 h-1 bg-surface-variant -z-0"></div>
+<div class="absolute top-1/2 left-4 w-1/2 -translate-y-1/2 h-1 bg-tertiary-container -z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-1 bg-surface-container-low px-2">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium text-center">Registrado</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-1 bg-surface-container-low px-2">
+<div class="w-7 h-7 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center font-label-sm">2</div>
+<span class="font-label-sm text-label-sm text-tertiary font-bold text-center">En Cosecha</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-1 bg-surface-container-low px-2">
+<div class="w-7 h-7 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-sm">3</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">En Ruta</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-1 bg-surface-container-low px-2">
+<div class="w-7 h-7 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-sm">4</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Entregado</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md pt-space-xs">
+<!-- Producer & Farm Profile -->
+<div class="lg:col-span-4 flex items-center gap-space-sm p-space-sm bg-surface-container-low rounded-xl">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Portrait of Doña María Roa, female Colombian potato farmer in Boyacá standing by verdant hillside potato crop fields, smiling warmly, natural sunlight, organic agricultural setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjDGyCzAorjtcF1Dq4VhrVhI4iteW8Xx_J2Gvyl4458xeVLF6azGEIuEsmeIpXAXXCgLKXXLisDFw14CERh8h-tjK8ZPLn64JC6Mr8vIJUrklGmcT6sUW-1VcY7_QanAnZmfnenSJRjy837Du2jCBPr2aZfvi4yuAEI5EB-HWyWgx-9JCgG2Y7ZVOWEYPbqeFhUJmw6o9-FxeH861v_AlrONuZVeqHiVMvZ5_H3aLS5QjfzmaU0Bq1Og"/>
+</div>
+<div class="min-w-0 flex-1">
+<div class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-primary">Productor Campesino</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface font-semibold truncate">Doña María Roa</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Finca San José • Ventaquemada, Boyacá</p>
+</div>
+</div>
+<!-- Product Details List -->
+<div class="lg:col-span-5 flex flex-col justify-center gap-space-2xs bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Detalle de Canasta Campesina:</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">grass</span>
+<p class="font-body-sm text-body-sm text-on-surface"><strong>1 Bulto (25 Kg)</strong> Papa Criolla Cero Lavada de Parcela</p>
+</div>
+<div class="flex items-center gap-space-xs text-on-tertiary-fixed-variant bg-tertiary-fixed/40 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<p class="font-label-sm text-label-sm">El productor está recolectando y empacando la cosecha en este momento.</p>
+</div>
+</div>
+<!-- Action Controls (Cancellation Disabled by Business Rule) -->
+<div class="lg:col-span-3 flex flex-col justify-center gap-space-xs">
+<div class="relative group">
+<button class="w-full h-touch-target-min px-space-md rounded-xl bg-surface-container-high text-outline cursor-not-allowed font-label-lg text-label-lg flex items-center justify-center gap-space-2xs opacity-75" disabled="">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>Cancelar Pedido</span>
+</button>
+<!-- Policy explanation tooltip / helper text -->
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center mt-1 leading-tight">
+                Cosecha ya recolectada. Coordinar directamente con la productora.
+              </p>
+</div>
+<!-- WhatsApp Direct Line -->
+<a class="w-full h-touch-target-min px-space-md rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-all flex items-center justify-center gap-space-xs shadow-sm" href="https://wa.me/573001234567?text=Hola%20Doña%20María,%20le%20escribo%20respecto%20a%20mi%20pedido%20%23DCM-8740" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>Hablar con Doña María</span>
+</a>
+</div>
+</div>
+</article>
+<!-- ORDER 3: ENTREGADO -->
+<article class="order-card bg-surface-container-lowest rounded-xl shadow-md p-space-md md:p-space-lg transition-all duration-300" data-status="entregado">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">#DCM-8510</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">08 Octubre, 11:15 AM</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Cosecha Entregada con Éxito
+            </span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Pagado:</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">$144.000 COP</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md pt-space-xs">
+<!-- Producer & Farm Profile -->
+<div class="lg:col-span-4 flex items-center gap-space-sm p-space-sm bg-surface-container-low rounded-xl">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Traditional coffee farming family in El Peñol Antioquia, holding ripe red coffee cherries in rustic woven basket, warm Colombian morning light, authentic artisan agriculture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw9Iy_p_JErR9IRfx3-LlNMCKGXVtxE6KUq5h3RXTZe0wYieE0NViZyUtTIAM9yYxiePncQjPurwu7joNMZUpTc-m2MA3zuOMxoit_XqmpIKDt2F0tqYl10KzOA4aGG4SyEuww8tlNtlpfkDLwXxnaxzii-zHyahrfFpBiqz3QR9htEg5lOXDSLEaoGfECp2RxlWhFGhfq3YD5mvhYSUrKvbH5w3PKY2VXZJ0XdrJ6jBo-nZa8i3A4tA"/>
+</div>
+<div class="min-w-0 flex-1">
+<div class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-primary">Caficultores Asociados</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface font-semibold truncate">Familia Henao</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Finca El Recuerdo • El Peñol, Antioquia</p>
+</div>
+</div>
+<!-- Product Details List -->
+<div class="lg:col-span-5 flex flex-col justify-center gap-space-2xs bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Detalle de Canasta Campesina:</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">local_cafe</span>
+<p class="font-body-sm text-body-sm text-on-surface"><strong>6 Kg</strong> Café Especial Tostado en Grano (Variedad Castillo)</p>
+</div>
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm pt-1">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+<span>Entregado en tu puerta por ruta rural directa</span>
+</div>
+</div>
+<!-- Action Controls (Post-Delivery Experience) -->
+<div class="lg:col-span-3 flex flex-col justify-center gap-space-xs">
+<button class="w-full h-touch-target-min px-space-md rounded-xl bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg transition-all flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[20px]">repeat</span>
+<span>Volver a Pedir</span>
+</button>
+<!-- Star Rating Trigger -->
+<button class="w-full h-touch-target-min px-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-space-2xs" onclick="openRatingModal('Familia Henao')">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="ml-1">Calificar Familia</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- EMPTY STATE (Dynamically shown or testable) -->
+<div class="hidden bg-surface-container-lowest rounded-xl shadow-sm p-space-2xl text-center flex-col items-center justify-center my-space-xl" id="empty-state">
+<div class="w-24 h-24 rounded-full bg-surface-container-low flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[52px]">agriculture</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-2xs">Aún no has realizado ningún pedido</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+        Lleva cosechas 100% frescas a tu mesa mientras dignificas los ingresos de familias agricultoras colombianas.
+      </p>
+<a class="h-touch-target-min px-space-xl rounded-xl bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg transition-all inline-flex items-center gap-space-xs shadow-md" data-path="catalogo" href="#">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+<span>Ir al Catálogo de Cosechas</span>
+</a>
+</div>
+<!-- Impact Guarantee Banner -->
+<section class="mt-space-2xl bg-surface-container-low rounded-xl p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">handshake</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Comercio 100% Justo y Transparente</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cada cancelación en estado pendiente libera inmediatamente el producto en la parcela sin cobros de penalidad para el comprador.</p>
+</div>
+</div>
+<a class="shrink-0 font-label-lg text-label-lg text-primary hover:underline flex items-center gap-1" data-path="como-funciona" href="#">
+<span>Conoce nuestras políticas rurales</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</section>
+</div>
+<!-- Cancellation Confirmation Modal -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden items-center justify-center p-space-md transition-opacity" id="cancel-modal">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-space-lg shadow-xl animate-scale-in">
+<div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">warning</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-2xs">¿Deseas cancelar el pedido <span class="text-error" id="modal-order-id">#DCM-8912</span>?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+        Estás a tiempo de cancelar sin recargo. Le notificaremos de inmediato a <strong class="text-on-surface" id="modal-farmer-name">Don Gustavo Morales</strong> para que no inicie el corte ni el embalaje de tu canasta campesina.
+      </p>
+<div class="bg-surface-container-low p-space-sm rounded-xl mb-space-lg space-y-space-2xs">
+<div class="flex items-center gap-space-2xs text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Reembolso automático del 100% a tu método de pago</span>
+</div>
+<div class="flex items-center gap-space-2xs text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Disponibilidad devuelta a la parcela comunitaria</span>
+</div>
+</div>
+<div class="flex flex-col-reverse sm:flex-row items-center justify-end gap-space-xs">
+<button class="w-full sm:w-auto h-touch-target-min px-space-lg rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-colors" onclick="closeCancelModal()">
+          Mantener mi pedido
+        </button>
+<button class="w-full sm:w-auto h-touch-target-min px-space-lg rounded-xl bg-error hover:bg-on-error-container text-on-error font-label-lg text-label-lg transition-colors shadow-sm flex items-center justify-center gap-space-2xs" onclick="confirmCancelOrder()">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<span>Sí, cancelar cosecha</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Rating Producer Modal -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden items-center justify-center p-space-md transition-opacity" id="rating-modal">
+<div class="bg-surface-container-lowest rounded-xl max-w-md w-full p-space-lg shadow-xl">
+<div class="flex items-center justify-between mb-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Calificar Productor</h3>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="closeRatingModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+        Tu calificación a <strong class="text-on-surface" id="rating-farmer-name">la Familia Campesina</strong> impulsa su reputación y visibilidad en toda la red nacional.
+      </p>
+<div class="flex justify-center gap-space-xs py-space-sm mb-space-md">
+<button class="text-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button class="text-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button class="text-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button class="text-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button class="text-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+</div>
+<div class="mb-space-md">
+<label class="block font-label-md text-label-md text-on-surface mb-1">Deja un mensaje para el agricultor:</label>
+<textarea class="w-full p-space-sm bg-surface-container-low rounded-xl text-on-surface font-body-sm text-body-sm border-0 focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Excelente calidad, los tomates llegaron frescos y firmes..." rows="3"></textarea>
+</div>
+<button class="w-full h-touch-target-min rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-colors shadow-sm" onclick="closeRatingModal()">
+        Enviar Calificación
+      </button>
+</div>
+</div>
+<script>
+    let activeFilter = 'all';
+
+    function filterOrders(status) {
+      activeFilter = status;
+      const tabs = document.querySelectorAll('.filter-tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+        tab.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+
+      const activeTab = document.getElementById('tab-' + status);
+      if (activeTab) {
+        activeTab.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+        activeTab.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+      }
+
+      const orders = document.querySelectorAll('.order-card');
+      let visibleCount = 0;
+
+      orders.forEach(order => {
+        const orderStatus = order.getAttribute('data-status');
+        if (status === 'all' || orderStatus === status) {
+          order.style.display = 'block';
+          visibleCount++;
+        } else {
+          order.style.display = 'none';
+        }
+      });
+
+      const emptyState = document.getElementById('empty-state');
+      if (visibleCount === 0) {
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+      } else {
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+      }
+    }
+
+    function openCancelModal(orderId, farmerName) {
+      document.getElementById('modal-order-id').innerText = '#' + orderId;
+      document.getElementById('modal-farmer-name').innerText = farmerName;
+      const modal = document.getElementById('cancel-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCancelModal() {
+      const modal = document.getElementById('cancel-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function confirmCancelOrder() {
+      const pendingOrder = document.querySelector('[data-status="pendiente"]');
+      if (pendingOrder) {
+        pendingOrder.style.transition = 'all 0.4s ease';
+        pendingOrder.style.opacity = '0';
+        pendingOrder.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          pendingOrder.remove();
+          closeCancelModal();
+          // Update tab counters
+          const countElem = document.querySelector('#tab-pendiente span:last-child');
+          if (countElem) countElem.innerText = '0';
+          const allElem = document.querySelector('#tab-all span:last-child');
+          if (allElem) allElem.innerText = '4';
+          const cancelElem = document.querySelector('#tab-cancelado span:last-child');
+          if (cancelElem) cancelElem.innerText = '1';
+        }, 400);
+      }
+    }
+
+    function openRatingModal(farmerName) {
+      document.getElementById('rating-farmer-name').innerText = farmerName;
+      const modal = document.getElementById('rating-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeRatingModal() {
+      const modal = document.getElementById('rating-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-auto shadow-[0_-4px_12px_rgba(0,0,0,0.03)]"><div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-2xl"><div><div class="flex items-center gap-space-xs mb-space-sm"><img alt="Logo Del Campo a Tus Manos" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwykc_W-YnzN53R68VKZZiTcqTN6xY_XLoDQVFcun0AV-Sz9FVhtVB9vbfQobaT6besaAs8CqJnRIES_Ksj_95hXhw64tUoJL_HQtyFH7Qy2Xx4EF49mQRfG0zys6OvRYmorJ-J51L5xL_HH48jX-DYJclTILm9VzNT8jp3Jt3A6frPCqd8Vaok6gVDJ0mJfDXWfNNBHpKyCX6dZVxDnhUlQxiN8WjmJ8yhri7LvYOhPyzfKQaeB_E3w"/><span class="font-headline-sm text-headline-sm text-primary-container font-bold">Del Campo a Tus Manos</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md leading-relaxed">Conectamos de forma directa, transparente y justa a las familias campesinas y productoras agrícolas con los hogares y negocios del país.</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs bg-surface-container-low rounded-xl text-primary-container font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">verified</span>Comercio Justo Certificado</div></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Mercado y Rutas</h3><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary-container transition-colors" data-path="catalogo" href="#">Catálogo de Cosechas</a></li><li><a class="hover:text-primary-container transition-colors" data-path="productores" href="#">Directorio de Fincas</a></li><li><a class="hover:text-primary-container transition-colors" data-path="como-funciona" href="#">Metodología de Entrega</a></li><li><a class="hover:text-primary-container transition-colors" data-path="precios-transparentes" href="#">Precios Justos en Origen</a></li></ul></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Comunidad Campesina</h3><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary-container transition-colors" data-path="panel-de-productor" href="#">Ingreso para Agricultores</a></li><li><a class="hover:text-primary-container transition-colors" data-path="registro-productor" href="#">Inscribir mi Parcela o Finca</a></li><li><a class="hover:text-primary-container transition-colors" data-path="soporte-rural" href="#">Asistencia Telefónica Rural</a></li><li><a class="hover:text-primary-container transition-colors" data-path="preguntas-frecuentes" href="#">Preguntas Frecuentes</a></li></ul></div><div><h3 class="font-title-md text-title-md text-on-surface mb-space-md">Atención al Usuario</h3><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Línea directa campesina disponible por llamada y mensajería en zonas rurales.</p><div class="flex items-center gap-space-xs text-primary-container font-label-lg text-label-lg mb-space-2xs"><span class="material-symbols-outlined text-[20px]">call</span><span>01 8000 420 420</span></div><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[20px]">mail</span><span>contacto@delcampoatusmanos.org</span></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant text-center sm:text-left">© 2024 Del Campo a Tus Manos. Sembrando equidad, cosechando bienestar.</p><div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-on-surface transition-colors" data-path="terminos" href="#">Términos</a><a class="hover:text-on-surface transition-colors" data-path="privacidad" href="#">Privacidad</a><a class="hover:text-on-surface transition-colors" data-path="impacto-social" href="#">Impacto Social</a></div></div></div></footer></body></html>
