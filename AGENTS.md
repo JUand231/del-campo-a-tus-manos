@@ -21,7 +21,7 @@
 
 ## Operational Rules
 
-**Arquitectura:** MVC desacoplado con API REST. Backend Java + Spring Boot (Web, Security, Data JPA). Frontend HTML5/CSS3/JavaScript Vanilla + Bootstrap. Servidor Tomcat embebido.
+**Arquitectura:** MVC desacoplado con API REST. Backend Node.js + Express (JWT en cookie HttpOnly, bcrypt, mysql2, Nodemailer). Frontend HTML5/CSS3/JavaScript Vanilla + Tailwind CSS. Servidor Node directo (dev) o tras Nginx como proxy inverso (producción).
 
 **Base de datos:** MySQL. Migraciones versionadas con Flyway (`V1__init.sql`, `V2__seed_data.sql`, ...). Nunca modificar un script Flyway ya aplicado; toda nueva migración debe ser un archivo nuevo.
 
@@ -32,22 +32,23 @@
 - No integrar pasarelas de pago, SDKs de GPS, ni tokens de API de terceros.
 - No hardcodear credenciales SMTP ni cadena de conexión a BD — siempre variables de entorno.
 
-**Seguridad:** sesiones HTTP con cookies seguras, hashing bcrypt, RBAC vía filtros de Spring Security (`/admin/**` → Administrador; `/productor/**` → Productor).
+**Seguridad:** JWT en cookie HttpOnly (`Secure` en producción, `SameSite=Lax`), hashing bcrypt, RBAC vía middlewares (`/admin/**` → Administrador; escritura de productos y avance de pedidos propios → Productor; catálogo en lectura pública).
 
-**Concurrencia de stock (RF-04):** todo descuento de stock debe ejecutarse dentro de una transacción (`@Transactional`) con bloqueo optimista (columna `@Version` en `Producto`) o `SELECT ... FOR UPDATE`, aislamiento mínimo `READ_COMMITTED`. Prohibido descontar stock fuera de una transacción atómica.
+**Concurrencia de stock (RF-04):** todo descuento de stock se ejecuta dentro de una transacción (`db.withTransaction`, commit/rollback) con `SELECT ... FOR UPDATE` y columna `version` de bloqueo optimista en `Producto` (InnoDB, `READ_COMMITTED` por defecto). Prohibido descontar stock fuera de una transacción atómica.
 
 **Notificaciones (RF-07):** envío de correo siempre asíncrono (no bloquear la respuesta HTTP). Un fallo de envío se registra en el log vía SLF4J/Logback y **nunca** revierte el cambio de estado del pedido.
 
 ## Harness Config
 
 **Comandos permitidos:**
-- `mvn verify` — build + Checkstyle + SpotBugs + JUnit. Obligatorio y debe pasar limpio antes de cualquier `push`.
-- `mvn test` — ejecución local de pruebas unitarias durante desarrollo.
-- Despliegue a `develop` en servidor de pruebas (VPS Tomcat) solo al cerrar un Hito completo.
+- `npm test` (en `backend/`) — suite TRD §4 (11 pruebas). Obligatorio y debe pasar limpio antes de cualquier `push`.
+- `npm audit --omit=dev --audit-level=high` — 0 vulnerabilidades high/critical.
+- `npm start` — arranque local (puerto 3000). `npm run init-db` — migraciones manuales V1+V2+V3.
+- Despliegue a rama de pruebas solo al cerrar un Hito completo (pendiente VPS).
 
-**Pre-push / PreToolUse gate:** ningún commit se considera válido si `mvn verify` falla. No se debe ejecutar `git push` sin build limpio.
+**Pre-push / PreToolUse gate:** ningún commit se considera válido si `npm test` falla o `npm audit` reporta high/critical. No se debe ejecutar `git push` sin suite en verde. El CI de GitHub (.github/workflows/ci.yml) lo verifica en cada push a main.
 
-**Pruebas obligatorias por RF (JUnit, ver TRD §4 — 11 en total, todas deben estar en verde antes del checkpoint de Hito 5):**
+**Pruebas obligatorias por RF (suite Node en `tests/test_rf_suite.js`, ver TRD §4 — 11 en total, todas deben estar en verde antes del checkpoint de Hito 5):**
 - Rechazo de registro con correo duplicado o campos obligatorios vacíos (RF-01)
 - Rechazo de publicación de producto con precio o stock ≤ 0 (RF-02)
 - El filtro/búsqueda de catálogo excluye productos sin stock disponible (RF-03)
@@ -67,12 +68,13 @@
 
 **Límites de contexto:** cada tarea/commit debe asociarse a un único RF-XX (granularidad atómica). No introducir funcionalidad, entidad o endpoint sin un RF de respaldo en el PRD.
 
-**Deuda técnica pendiente (resolver antes o durante Hito 4, no bloquea el inicio de Hito 1):**
-- Definir explícitamente el mecanismo de concurrencia para el descuento de stock (bloqueo optimista `@Version` o `SELECT ... FOR UPDATE`) — hoy solo está descrito en este archivo, falta formalizarlo en TRD §2/§3.
-- Definir el contrato de API de catálogo (`GET /api/productos?...`) para RF-03.
-- Documentar en TRD §2 el servicio de restitución de stock al cancelar (RF-06).
-- Aclarar en TRD §5 si el servidor de pruebas es el entorno final o si hay una etapa de producción posterior.
-- Enumerar campos concretos de `Usuario`, `Producto`, `Pedido`/`DetallePedido` en TRD §2 (incluyendo `Usuario.activo`).
+**Deuda técnica (estado a cierre MVP):**
+- ✅ Concurrencia de stock formalizada en TRD §2/§3 (`FOR UPDATE` + columna `version`).
+- ✅ Contrato de API de catálogo documentado en TRD §3 (`GET /api/productos?q&categoria_id&municipio`).
+- ✅ Servicio de restitución de stock documentado en TRD §2/§3 (cancelación transaccional RF-06).
+- ✅ Servidor: desarrollo local (Node directo); producción pendiente (VPS + Nginx + MySQL administrado) — ver TRD §5 y README §5.
+- ✅ Campos de entidades enumerados en TRD §2 (incluyendo `Usuario.activo` y `Producto.version`).
+- ⏳ Post-piloto: prueba de carrera concurrente, build local de Tailwind, APM, Redis si se escala.
 
 ## Persistence Loop
 

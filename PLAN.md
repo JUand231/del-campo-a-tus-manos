@@ -7,7 +7,7 @@
 
 **MVP (Fase 1):** RF-01 a RF-09 — autenticación y roles, gestión de productos, catálogo con búsqueda, ciclo completo de pedidos con descuento de stock, cancelación en estado `Pendiente`, notificaciones por correo y panel admin (moderación + métricas).
 
-**Fase 2 (Mejoras Cercanas):** Filtro avanzado por categorías/ubicación, **mensajería integrada al pedido (entidad `MensajePedido`, explícitamente fuera del MVP — ver PRD §4 y TRD §2)**, notificaciones por email más completas (ej. resumen semanal), historial detallado y pipeline de CI declarativo (ver TRD §1).
+**Fase 2 (Mejoras Cercanas):** Filtro avanzado por categorías/ubicación, **mensajería integrada al pedido (entidad `MensajePedido`, explícitamente fuera del MVP — ver PRD §4 y TRD §2)**, notificaciones por email más completas (ej. resumen semanal), historial detallado (el pipeline de CI declarativo ya opera: `.github/workflows/ci.yml`).
 
 **Fase 3 (Largo Plazo):** Exportación de reportes PDF/Excel, mapa interactivo de productores y sistema de reputación/comentarios.
 
@@ -19,14 +19,16 @@
 | **Hito 2 – Autenticación y Usuarios** | Endpoints y vistas de login/registro, hashing bcrypt y manejo de sesiones HTTP. | RF-01 | "Rechazo de registro con correo duplicado o campos vacíos" |
 | **Hito 3 – Módulo de Productos** | ABM de productos, subida local de imágenes, visualización de catálogo y validaciones de rango. | RF-02, RF-03 | "Rechazo de producto con precio/stock ≤0", "Filtro de catálogo excluye sin stock" |
 | **Hito 4 – Módulo de Pedidos** | Endpoint de creación de pedido, descuento transaccional de stock, cancelación en estado `Pendiente`, vista de seguimiento, actualización de estado para el productor y envío de notificación por correo. | RF-04, RF-05, RF-06, RF-07 | "Validación de stock", "Prohibición de auto-compra", "Transiciones de estado inválidas", "Restitución de stock al cancelar", "Persistencia de estado si falla el correo" |
-| **Hito 5 – Panel Admin e Integración Final** | Módulo de moderación, consulta de métricas, pruebas unitarias JUnit sobre flujos críticos y despliegue final en servidor de pruebas. | RF-08, RF-09 | "Bloqueo de rutas /admin/** para roles no autorizados", "Usuario desactivado no puede iniciar sesión" |
+| **Hito 5 – Panel Admin e Integración Final** | Módulo de moderación, consulta de métricas, suite Node sobre flujos críticos y despliegue final en servidor de pruebas. | RF-08, RF-09 | "Bloqueo de rutas /admin/** para roles no autorizados", "Usuario desactivado no puede iniciar sesión" |
+
+**Estado a cierre MVP:** los 5 hitos entregados y auditados (tickets T1–T13, endurecimiento S1–S7, Git + CI).
 
 ### 3. Puertas de Calidad y Criterios de Parada (Human-in-the-Loop)
 
 **Criterio de Parada (por hito):** Un hito solo se aprueba cuando:
 1. El flujo vertical (backend + frontend) se ejecuta sin errores en el *Happy Path* correspondiente (ver USER_FLOW).
 2. Se cumplen **todos** los criterios de aceptación de los RF asignados a ese hito (tabla §2), verificados con las pruebas unitarias JUnit ya declaradas en TRD §4 para ese hito.
-3. El build pasa limpio: `mvn verify` sin errores de Checkstyle/SpotBugs (ver TRD §1).
+3. El build pasa limpio: `npm test` (11 pruebas) + `npm audit --audit-level=high` en 0 (ver TRD §1).
 4. El código está consolidado en Git y desplegado en el servidor de pruebas (ver §4).
 
 **Intervención Humana:** Puntos de revisión obligatorios antes de fusionar a la rama `main`:
@@ -38,4 +40,4 @@
 
 **Granularidad:** Micro-tareas atómicas, cada una asociada a un único RF (ej. "Crear tabla Producto — RF-02", "Crear endpoint POST /login — RF-01", "Implementar envío async de correo en cambio de estado — RF-07").
 
-**Estrategia de Despliegue de Pruebas:** Ejecución local durante el desarrollo, con `mvn verify` (build + linter) como paso obligatorio antes de cada `push`. Al superar cada hito, se despliega la versión de desarrollo (rama `develop`) en un servidor de pruebas (VPS con Tomcat) para retroalimentación con evaluadores/instructores SENA.
+**Estrategia de Despliegue de Pruebas:** Ejecución local durante el desarrollo, con `npm test` como paso obligatorio antes de cada `push`. Al superar cada hito, se despliega la versión de desarrollo en un servidor de pruebas para retroalimentación con evaluadores/instructores SENA.

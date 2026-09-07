@@ -17,6 +17,10 @@
 - Si un usuario intenta acceder a una sección que requiere autenticación sin tener sesión activa, el sistema lo redirige al Login y, tras iniciar sesión, lo devuelve a la página que intentaba visitar.
 - Si la sesión expira mientras el usuario navega, la próxima acción que requiera autenticación (ej. confirmar un pedido) lo redirige al Login con un mensaje: *"Tu sesión ha expirado, por favor inicia sesión de nuevo."*
 
+**Recuperación de contraseña (soporta RF-01):**
+- Desde el Login, "¿Olvidaste tu contraseña?" pide el correo y envía un código OTP de 6 dígitos (válido 10 minutos).
+- Con el código + nueva contraseña (mínimo 6 caracteres), la clave se actualiza y se vuelve al Login. Códigos vencidos o 5 intentos erróneos invalidan el código.
+
 ### 2. Happy Path del Comprador (RF-01, RF-03, RF-04, RF-06, RF-07)
 
 1. Ingreso a la landing e inicio de sesión autenticado (RF-01).

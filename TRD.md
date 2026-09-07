@@ -7,14 +7,14 @@
 
 **Arquitectura seleccionada:** Modelo-Vista-Controlador (MVC) desacoplado con API REST en el backend.
 
-**Decisión de stack:** **Java + Spring Boot**, sobre Servlets/JSP puros, por su ecosistema más maduro para construir APIs REST, su menor cantidad de código repetitivo (boilerplate) y su facilidad para integrar seguridad, validaciones y persistencia de forma ordenada.
+**Decisión de stack:** **Node.js + Express**, por su bajo consumo de recursos, JSON nativo, ecosistema maduro (mysql2, jsonwebtoken, bcryptjs, Nodemailer) y despliegue simple en VPS económicos.
 
-- **Backend:** Java con Spring Boot (Spring Web, Spring Security, Spring Data JPA).
-- **Frontend:** HTML5, CSS3, JavaScript Vanilla y Bootstrap para diseño responsive.
-- **Servidor de Aplicaciones:** Apache Tomcat (embebido en Spring Boot).
-- **Control de Versiones:** Git.
-- **Calidad estática:** Checkstyle + SpotBugs, ejecutados en cada build local (`mvn verify`) antes de cualquier `push` (ver PLAN §3, puerta de calidad de CI/lint).
-- **Mejora continua (post-MVP):** cuando el equipo disponga de un runner, formalizar un pipeline de CI declarativo (ej. GitHub Actions) que ejecute `mvn verify` automáticamente en cada Pull Request, como respaldo del control local. No bloqueante para el MVP.
+- **Backend:** Node.js + Express (capas: rutas, controladores, servicios, middlewares de seguridad y RBAC).
+- **Frontend:** HTML5, CSS3, JavaScript Vanilla y Tailwind CSS para diseño responsive (SPA servida por el propio backend).
+- **Servidor de Aplicaciones:** Node directo en desarrollo; Nginx como proxy inverso + TLS en producción.
+- **Control de Versiones:** Git (GitHub) + Actions.
+- **Calidad:** suite `npm test` (11 pruebas TRD §4) + `npm audit --audit-level=high` (0 hallazgos), ejecutados antes de cada `push`.
+- **CI formalizado:** workflow `.github/workflows/ci.yml` (MySQL 8 de servicio) que ejecuta la suite y el audit en cada push/PR a `main`.
 
 ### 2. Modelo de Datos y Persistencia
 
@@ -30,6 +30,9 @@
 | `Usuario` (Comprador) | (1) ── (N) `Pedido` | RF-04 |
 | `Pedido` | (1) ── (N) `DetallePedido` (N) ── (1) `Producto` | RF-04, RF-05 |
 | `Pedido.estado` | Enum: `Pendiente/En Proceso/Entregado/Cancelado` | RF-05, RF-06 |
+| `password_reset_otp` | (1) ── (1) `Usuario` por email; OTP hash SHA-256, expira 10 min, tope 5 intentos | RF-01 (recuperación) |
+
+**Campos principales:** `Usuario(id, rol_id, nombre, email único, password_hash bcrypt, telefono, municipio, activo)` · `Producto(id, productor_id, categoria_id, nombre, descripcion, precio, cantidad_disponible, unidad_medida, foto_url, municipio, version)` · `Pedido(id, comprador_id, estado enum, total, direccion_entrega, telefono_contacto, notas)` · `DetallePedido(id, pedido_id, producto_id, cantidad, precio_unitario, subtotal)` · `Categoria(id, nombre único, descripcion, icono)` · `Rol(id, nombre único)`.
 
 > **Nota de alcance (resuelve conflicto detectado en auditoría previa):** la entidad `MensajePedido` (mensajería entre productor y comprador) **no se crea en el Hito 1 ni en ningún hito del MVP**. Corresponde a la Fase 2 del roadmap (ver PLAN §1) y solo se diseñará cuando esa fase inicie. No existe tabla, endpoint ni servicio asociado a mensajería en esta versión del TRD.
 
@@ -39,22 +42,24 @@
 
 ### 3. APIs, Seguridad e Integraciones
 
-**Notificaciones (implementa RF-07):** JavaMail API sobre SMTP, para notificar al comprador cambios de estado del pedido (`Pendiente` → `En Proceso` → `Entregado`/`Cancelado`).
+**Notificaciones (implementa RF-07):** Nodemailer sobre SMTP (TLS verificado), para notificar al comprador cambios de estado del pedido (`Pendiente` → `En Proceso` → `Entregado`/`Cancelado`).
 - El envío se ejecuta de forma asíncrona (proceso en segundo plano) para no bloquear la respuesta al usuario.
 - Si el envío del correo falla, el cambio de estado del pedido **no se revierte**; el error se registra en el log del sistema (ver §5), cumpliendo el criterio de aceptación de RF-07.
 
-**Almacenamiento de Archivos (soporta RF-02):** Almacenamiento local en disco del servidor para imágenes subidas por los productores, con validación de tipo (jpg/png) y tamaño máximo por archivo.
+**Almacenamiento de Archivos (soporta RF-02):** las fotos viajan como URL (`foto_url`, con imagen de respaldo vía `onerror` en vistas); no existe endpoint de subida de archivos en el MVP (FILE-SEC N/A por diseño).
 
 **Protección de credenciales:** Las credenciales de SMTP y la cadena de conexión a la base de datos se gestionan mediante variables de entorno (no se hardcodean en el código ni se suben al repositorio). No se manejan tokens de API de terceros en el MVP, por lo que no se requiere un patrón BFF adicional.
 
 **Seguridad y Autenticación (implementa RF-01, RF-08, RF-09):**
-- Sesiones HTTP tradicionales con cookies seguras.
-- Hashing de contraseñas mediante `bcrypt`.
-- Control de acceso basado en roles (RBAC) mediante filtros de Spring Security: rutas `/admin/**` restringidas al rol Administrador (RF-08, RF-09), rutas `/productor/**` restringidas al rol Productor (RF-02, RF-05).
+- JWT en cookie HttpOnly (`Secure` en producción, `SameSite=Lax` como protección CSRF); esquema `Bearer` aceptado por compatibilidad. Fail-fast sin `JWT_SECRET` propio en producción.
+- Hashing de contraseñas mediante `bcrypt`; recuperación por OTP hash SHA-256 con expiración de 10 minutos (tabla `password_reset_otp`).
+- Control de acceso basado en roles (RBAC) vía middlewares: rutas `/admin/**` restringidas al rol Administrador (RF-08, RF-09), escritura de productos y avance de pedidos propios restringida al rol Productor (RF-02, RF-05), catálogo público de lectura.
+
+**Contrato de API de catálogo (implementa RF-03):** `GET /api/productos?q=<texto>&categoria_id=<id>&municipio=<texto>` — responde `{ success, total, categorias, productos }` excluyendo `cantidad_disponible <= 0`; el frontend filtra vía fetch + re-render sin recarga. La restitución de stock (RF-06) corre dentro de la transacción de cancelación (`cancelOrder`), incrementando `version`.
 
 ### 4. Estrategia de Pruebas y Robustez
 
-**Pruebas seleccionadas:** Pruebas unitarias con **JUnit**, enfocadas en la lógica de negocio del backend, mapeadas directamente a los criterios de aceptación del PRD. Cada RF del MVP tiene al menos una prueba explícita:
+**Pruebas seleccionadas:** Pruebas con **Node (`tests/test_rf_suite.js`, comando `npm test` en `backend/`)**, enfocadas en la lógica de negocio del backend, mapeadas directamente a los criterios de aceptación del PRD. Cada RF del MVP tiene al menos una prueba explícita:
 
 | Prueba | RF que valida |
 |---|---|
@@ -76,6 +81,6 @@
 
 ### 5. Operaciones, Despliegue y Observabilidad
 
-**Entorno de Despliegue seleccionado:** Servidor Apache Tomcat embebido, desplegado en una Máquina Virtual / VPS simple, por ser una opción económica y suficiente para el volumen de tráfico esperado en el MVP.
+**Entorno de Despliegue seleccionado:** Node.js directo (desarrollo) o tras Nginx con TLS (producción), en una Máquina Virtual / VPS simple, por ser una opción económica y suficiente para el volumen de tráfico esperado en el MVP. Desarrollo y producción corren la misma app; producción queda pendiente de VPS (ver README §5).
 
-**Logging y Telemetría:** Registrador estructurado SLF4J / Logback, con volcado a archivos de log locales para depuración técnica y auditoría básica de errores (intentos de login fallidos, errores en la confirmación de pedidos, fallos de envío de correo — este último trazado explícitamente para respaldar el criterio de aceptación de RF-07).
+**Logging y Telemetría:** `services/logger.js` con niveles (info/warn/error), volcado diario a `backend/logs/` con retención de 14 días, para depuración técnica y auditoría básica de errores (intentos de login fallidos, errores en la confirmación de pedidos, fallos de envío de correo — este último trazado explícitamente para respaldar el criterio de aceptación de RF-07).

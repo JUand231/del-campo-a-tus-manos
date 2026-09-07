@@ -12,13 +12,13 @@
 - [X] `INPUT-VAL/SANITIZE`: Sanitización y validación estricta de todo input (Bean Validation/DTOs) contra SQL Injection, XSS y Command Injection — validado en backend siempre; el frontend replica la misma validación (ej. precio/stock ≤ 0) solo como feedback inmediato al usuario, nunca como única defensa.
 - [X] `ENV-VARS/SECRETS`: Prohibido hardcodear credenciales o secretos; uso exclusivo de variables de entorno (.env) e inclusión obligatoria en `.gitignore`.
 - [X] `HASH-CRYPT/BCRYPT`: Hashing de contraseñas exclusivamente con bcrypt + salting. Prohibido MD5, SHA1 o Argon2 (no está aprobado en este proyecto — evitar ambigüedad de nombres).
-- [X] `AUTH-JWT/RBAC`: Autenticación y control de acceso por roles (RBAC) mediante Spring Security (`/admin/**`, `/productor/**`).
-- [X] `CSP-HEADERS/SPRING-SECURITY`: Cabeceras de seguridad HTTP (CSP, X-Frame-Options, X-Content-Type-Options, HSTS) configuradas vía `HttpSecurity.headers()` de Spring Security (no aplica "Helmet", que es de Node/Express).
+- [X] `AUTH-JWT/RBAC`: Autenticación y control de acceso por roles (RBAC) mediante middlewares Express + JWT en cookie HttpOnly (`/admin/**`, escritura de productos).
+- [X] `CSP-HEADERS/SPRING-SECURITY`: Cabeceras de seguridad HTTP (CSP, X-Frame-Options, X-Content-Type-Options, HSTS) configuradas manualmente en Express (HSTS solo en producción tras proxy TLS).
 - [X] `RATE-LIMIT/DDOS`: Rate limiting en endpoints críticos (`/api/auth/login`, `/api/pedidos`).
 - [X] `CORS-POL/ORIGIN`: Política CORS restrictiva, sin comodines `*`, solo orígenes autorizados.
-- [X] `FILE-SEC/UPLOAD-VAL`: Validación de imágenes de producto (MIME real, extensión, tamaño máximo), renombrado seguro fuera del directorio web directo.
+- [X] `FILE-SEC/UPLOAD-VAL`: Validación de imágenes de producto (MIME real, extensión, tamaño máximo), renombrado seguro fuera del directorio web directo. Nota MVP: sin endpoint de subida (fotos por URL con respaldo `onerror`); la regla aplica si se añade subida en Fase 2.
 - [X] `ERR-MASK/LOG-SEC`: Sin stack traces ni detalles internos en producción; registro seguro vía SLF4J/Logback.
-- [X] `CSRF-PROT`: Protección CSRF con cookies seguras y tokens SameSite.
+- [X] `CSRF-PROT`: Protección CSRF con cookie HttpOnly + SameSite=Lax (los mutadores son POST/PUT/DELETE; los GET son de solo lectura).
 
 ### Categoría 2 — Páginas y Estructura Web · 6/12
 - [X] `GDPR/RGPD`: Política de privacidad (`/privacy`).
@@ -56,8 +56,8 @@
 - Prohibido hashing obsoleto (MD5, SHA1); solo bcrypt.
 - Ocultar stack traces y detalles de infraestructura en producción; mensajes amables en español.
 - Prohibido crear `MensajePedido`, pasarelas de pago externas, GPS o cualquier feature fuera de RF-01 a RF-09.
-- Descuento de stock (RF-04): transacción atómica `@Transactional`, aislamiento `READ_COMMITTED`, bloqueo optimista `@Version`.
-- Ninguna tarea se da por completada sin ejecutar `mvn verify` y validar las 28 reglas activadas.
+- Descuento de stock (RF-04): transacción atómica (`db.withTransaction`), aislamiento `READ_COMMITTED` (InnoDB por defecto), bloqueo optimista (columna `version`) + `SELECT ... FOR UPDATE`.
+- Ninguna tarea se da por completada sin ejecutar `npm test` y validar las 28 reglas activadas.
 
 ## 4. JUSTIFICACIÓN DE SELECCIÓN
 **Reglas activadas: 28/68**

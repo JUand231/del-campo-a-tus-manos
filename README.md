@@ -1,5 +1,7 @@
 # 🌾 Del Campo a Tus Manos — Plataforma Web Agrícola
 
+![CI](https://github.com/JUand231/del-campo-a-tus-manos/actions/workflows/ci.yml/badge.svg)
+
 Plataforma de comercio justo que conecta directamente a campesinos productores con personas, familias y restaurantes sin intermediarios, garantizando transparencia de origen, precios justos y alimentos frescos cosechados el mismo día.
 
 > **Proyecto ADSO - SENA**  
@@ -10,9 +12,9 @@ Plataforma de comercio justo que conecta directamente a campesinos productores c
 ## 🏛️ 1. Arquitectura y Stack Tecnológico
 
 - **Frontend:** SPA modular basada en HTML5 semántico, CSS3 con tokens de `DESIGN.md`, Tailwind CSS y JavaScript Vanilla. Diseñado para un área táctil mínima de 44×44 px (`touch-target-min`) y navegación adaptada a teléfonos móviles de campo y escritorio.
-- **Backend:** API REST desacoplada en Node.js + Express con arquitectura limpia por capas (Controladores, Servicios, Repositorios/Modelos, Middlewares de Seguridad y RBAC).
-- **Base de Datos:** **MySQL 8+** (con InnoDB y soporte transaccional completo). Se incluye conector nativo `mysql2` y scripts Flyway estándar (`V1__init.sql` y `V2__seed_data.sql`), además de un fallback resiliente en memoria para evaluación inmediata sin fricción si MySQL no estuviese activo localmente.
-- **Seguridad (OWASP Top 10):** Hashing con `bcrypt` (prohibido MD5/SHA1), autenticación con JWT, RBAC (`/admin/**`, `/productor/**`), sanitización contra XSS y SQL Injection, rate limiting en `/api/auth/login` y `/api/pedidos`, y cabeceras de seguridad CSP/HSTS.
+- **Backend:** API REST desacoplada en Node.js + Express con arquitectura limpia por capas (Controladores, Servicios, Repositorios/Modelos, Middlewares de Seguridad y RBAC). Recuperación por OTP (tabla `password_reset_otp`) y CI en GitHub Actions.
+- **Base de Datos:** **MySQL 8+** (con InnoDB y soporte transaccional completo). Se incluye conector nativo `mysql2` y scripts Flyway estándar (`V1__init.sql`, `V2__seed_data.sql` y `V3__password_reset_otp.sql`), además de un fallback resiliente en memoria para evaluación inmediata sin fricción si MySQL no estuviese activo localmente.
+- **Seguridad (OWASP Top 10):** Hashing con `bcrypt` (prohibido MD5/SHA1), autenticación con JWT en cookie HttpOnly (`SameSite=Lax`), RBAC (`/admin/**`, escritura de productos), sanitización contra XSS y SQL Injection, rate limiting en `/api/auth/login` y `/api/pedidos`, y cabeceras de seguridad CSP/HSTS.
 - **Límites de Alcance del MVP:** Se excluye explícitamente `MensajePedido` (reservado a Fase 2), pasarelas de pago externas y rastreo GPS.
 
 ---

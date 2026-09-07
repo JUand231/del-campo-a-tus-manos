@@ -30,7 +30,7 @@ Cada funcionalidad tiene un identificador único (`RF-XX`) que debe citarse en T
 
 | ID | Funcionalidad | Descripción | Criterio de Aceptación |
 |---|---|---|---|
-| **RF-01** | Autenticación | Registro e inicio de sesión con correo y contraseña, validando duplicidad de correos. | El sistema rechaza el registro si el correo ya existe o si algún campo obligatorio está vacío, mostrando un mensaje claro al usuario. |
+| **RF-01** | Autenticación | Registro e inicio de sesión con correo y contraseña, validando duplicidad de correos. Incluye recuperación de contraseña por código OTP al correo (hash, expira en 10 min, tope de 5 intentos). | El sistema rechaza el registro si el correo ya existe o si algún campo obligatorio está vacío, mostrando un mensaje claro al usuario. |
 | **RF-02** | Gestión de Productos (Productor) | Crear, editar y eliminar publicaciones (nombre, descripción, precio, cantidad disponible, unidad de medida, foto y municipio). | Un producto solo se publica cuando todos los campos obligatorios son válidos (precio y stock mayores a cero) y aparece de inmediato en el catálogo público. |
 | **RF-03** | Catálogo y Búsqueda (Comprador) | Visualización de productos disponibles con filtros por categoría o búsqueda por nombre. | Los resultados del filtro/búsqueda se actualizan sin recargar la página completa y muestran solo productos con stock disponible. |
 | **RF-04** | Generación de Pedidos | Selección de productos y cantidad deseada. Descuento automático de stock al confirmar la compra. | El pedido solo se confirma si la cantidad solicitada es menor o igual al stock disponible en ese momento; el stock se descuenta de forma inmediata y consistente. |
@@ -60,6 +60,7 @@ Cada funcionalidad tiene un identificador único (`RF-XX`) que debe citarse en T
 | Caso límite | RF relacionado |
 |---|---|
 | Intento de registro con correo duplicado o campos obligatorios vacíos. | RF-01 |
+| Código OTP expirado, erróneo o con intentos agotados al recuperar contraseña. | RF-01 |
 | Publicación de productos con precio o stock menor o igual a cero. | RF-02 |
 | Intento de compra solicitando una cantidad superior al stock disponible. | RF-04 |
 | Intento de auto-compra (un productor comprándose a sí mismo). | RF-04 |

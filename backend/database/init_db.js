@@ -2,7 +2,7 @@
  * ==========================================================
  * PROYECTO: Del Campo a Tus Manos
  * ARCHIVO: backend/database/init_db.js
- * DESCRIPCIÓN: Script de ejecución de migraciones en MySQL (V1 + V2)
+ * DESCRIPCIÓN: Script de ejecución de migraciones en MySQL (V1 + V2 + V3)
  * USO: npm run init-db
  * ==========================================================
  */
@@ -42,6 +42,14 @@ async function main() {
         const v2Sql = fs.readFileSync(v2Path, 'utf8');
         await dbConn.query(v2Sql);
         console.log(`✓ V2__seed_data.sql ejecutado exitosamente.`);
+
+        const v3Path = path.join(__dirname, 'migrations', 'V3__password_reset_otp.sql');
+        if (fs.existsSync(v3Path)) {
+            console.log(`Leyendo y ejecutando V3__password_reset_otp.sql...`);
+            const v3Sql = fs.readFileSync(v3Path, 'utf8');
+            await dbConn.query(v3Sql);
+            console.log(`✓ V3__password_reset_otp.sql ejecutado exitosamente.`);
+        }
 
         console.log('--- BASE DE DATOS INICIALIZADA SATISFACTORIAMENTE ---');
         await dbConn.end();
