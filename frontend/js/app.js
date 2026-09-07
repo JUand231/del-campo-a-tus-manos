@@ -8,12 +8,15 @@
 
 import { store, showToast } from './store.js';
 import { api } from './api.js';
+import { cart } from './cart.js';
 import { initAuthModal } from './views/authModal.js';
 import { renderCatalog } from './views/catalogView.js';
 import { renderProductDetail } from './views/productDetailView.js';
 import { renderOrders } from './views/ordersView.js';
 import { renderProducer } from './views/producerView.js';
 import { renderAdmin } from './views/adminView.js';
+import { renderCart } from './views/cartView.js';
+import { renderCheckout } from './views/checkoutView.js';
 
 const appContainer = document.getElementById('app-main');
 
@@ -41,6 +44,10 @@ async function handleRouting() {
         renderPrivacy(appContainer);
     } else if (hash === '#/catalogo' || hash === '#/' || hash === '#') {
         await renderCatalog(appContainer);
+    } else if (hash === '#/carrito') {
+        await renderCart(appContainer);
+    } else if (hash === '#/checkout') {
+        await renderCheckout(appContainer);
     } else {
         renderNotFound(appContainer);
     }
@@ -64,6 +71,18 @@ function renderNotFound(container) {
         </div>
     `;
 }
+
+// Carrito: badge con unidades en el header global (K2)
+function updateCartBadge() {
+    const badge = document.getElementById('cart-count-badge');
+    if (!badge) return;
+    const units = cart.units();
+    badge.textContent = units > 99 ? '99+' : String(units);
+    badge.classList.toggle('hidden', units === 0);
+    badge.classList.toggle('flex', units > 0);
+}
+window.addEventListener('cart-changed', updateCartBadge);
+updateCartBadge();
 
 // Actualiza botones y accesos según estado de sesión y rol
 function updateNavbarState() {

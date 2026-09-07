@@ -8,10 +8,19 @@
  */
 
 import { api } from '../api.js';
+import { cart } from '../cart.js';
+import { store, showToast } from '../store.js';
 
 let currentCategory = null;
 let currentSearch = '';
 let currentRegion = 'todos';
+
+// K2: un productor no puede agregar sus propios productos (anti auto-compra RF-04;
+// el backend lo bloquea de todos modos al confirmar).
+function isOwnProduct(prod) {
+    const u = store.getUser();
+    return !!u && String(u.rol_nombre).toUpperCase() === 'PRODUCTOR' && Number(u.id) === Number(prod.productor_id);
+}
 
 export async function renderCatalog(container) {
     container.innerHTML = `
@@ -228,8 +237,8 @@ async function loadProducts() {
                             </span>
                             <span class="text-xs text-text-secondary font-normal">/${prod.unidad_medida}</span>
                         </div>
-                        <button class="btn-primary-cta text-xs px-3.5 py-2 shrink-0" data-id="${prod.id}">
-                            <span>Pedir</span>
+                        <button class="btn-add-cart btn-primary-cta text-xs px-3.5 py-2 shrink-0 ${isOwnProduct(prod) ? 'opacity-50 cursor-not-allowed' : ''}" data-id="${prod.id}" ${isOwnProduct(prod) ? 'disabled title="Es tu propio producto: la auto-compra está prohibida (RF-04)"' : 'title="Agregar al carrito"'}>
+                            <span>Agregar</span>
                             <span class="material-symbols-outlined text-[16px]">shopping_basket</span>
                         </button>
                     </div>
@@ -242,6 +251,18 @@ async function loadProducts() {
             card.addEventListener('click', (e) => {
                 const prodId = card.getAttribute('data-id');
                 window.location.hash = `#/producto/${prodId}`;
+            });
+        });
+
+        // Botones Agregar al carrito (K2) — stopPropagation para no abrir el detalle
+        grid.querySelectorAll('.btn-add-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const prodId = Number(btn.getAttribute('data-id'));
+                const prod = productos.find(p => Number(p.id) === prodId);
+                if (!prod) return;
+                const res = cart.addItem(prod, 1);
+                showToast(res.ok ? `"${prod.nombre}" agregado al carrito.` : res.message, res.ok ? 'success' : 'error');
             });
         });
 

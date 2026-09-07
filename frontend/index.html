@@ -80,6 +80,11 @@
 
             <!-- Acciones de Usuario y Sesión -->
             <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Carrito (épica K): visible siempre, badge con unidades -->
+                <a href="#/carrito" id="nav-cart-btn" class="relative p-2 rounded-xl text-text-secondary hover:bg-[#F5F3F3] focus:outline-none" title="Ver mi carrito" aria-label="Ver mi carrito">
+                    <span class="material-symbols-outlined text-[26px]">shopping_basket</span>
+                    <span id="cart-count-badge" class="hidden absolute -top-0.5 -right-0.5 min-w-[20px] h-5 px-1 rounded-full text-[11px] font-bold text-white items-center justify-center" style="background-color: var(--color-secondary);">0</span>
+                </a>
                 <div id="nav-auth-actions" class="flex items-center gap-2">
                     <!-- Dinámicamente inyectado por app.js -->
                 </div>
@@ -111,6 +116,9 @@
                     </a>
                     <a href="#/mis-pedidos" class="hover:text-primary flex items-center gap-2">
                         <span class="material-symbols-outlined text-[20px]">receipt_long</span> Mis Pedidos
+                    </a>
+                    <a href="#/carrito" class="hover:text-primary flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[20px]">shopping_basket</span> Mi Carrito
                     </a>
                     <a href="#/productor" class="hover:text-primary flex items-center gap-2 text-primary" style="color: var(--color-primary);">
                         <span class="material-symbols-outlined text-[20px]">agriculture</span> Panel Productor
