@@ -31,10 +31,11 @@
 | `Pedido` | (1) ── (N) `DetallePedido` (N) ── (1) `Producto` | RF-04, RF-05 |
 | `Pedido.estado` | Enum: `Pendiente/En Proceso/Entregado/Cancelado` | RF-05, RF-06 |
 | `password_reset_otp` | (1) ── (1) `Usuario` por email; OTP hash SHA-256, expira 10 min, tope 5 intentos | RF-01 (recuperación) |
+| `mensaje_pedido` | (N) ── (1) `Pedido`, (N) ── (1) `Usuario` (autor) | RF-10 (Fase 2) |
 
-**Campos principales:** `Usuario(id, rol_id, nombre, email único, password_hash bcrypt, telefono, municipio, activo)` · `Producto(id, productor_id, categoria_id, nombre, descripcion, precio, cantidad_disponible, unidad_medida, foto_url, municipio, version)` · `Pedido(id, comprador_id, estado enum, total, direccion_entrega, telefono_contacto, notas)` · `DetallePedido(id, pedido_id, producto_id, cantidad, precio_unitario, subtotal)` · `Categoria(id, nombre único, descripcion, icono)` · `Rol(id, nombre único)`.
+**Campos principales:** `Usuario(id, rol_id, nombre, email único, password_hash bcrypt, telefono, municipio, activo)` · `Producto(id, productor_id, categoria_id, nombre, descripcion, precio, cantidad_disponible, unidad_medida, foto_url, municipio, version)` · `Pedido(id, comprador_id, estado enum, total, direccion_entrega, telefono_contacto, notas)` · `DetallePedido(id, pedido_id, producto_id, cantidad, precio_unitario, subtotal)` · `Categoria(id, nombre único, descripcion, icono)` · `Rol(id, nombre único)` · `password_reset_otp(email PK, otp_hash, expires_at, intentos)` · `mensaje_pedido(id, pedido_id, autor_id, mensaje TEXT, leido, created_at)` (Fase 2, migración V4).
 
-> **Nota de alcance (resuelve conflicto detectado en auditoría previa):** la entidad `MensajePedido` (mensajería entre productor y comprador) **no se crea en el Hito 1 ni en ningún hito del MVP**. Corresponde a la Fase 2 del roadmap (ver PLAN §1) y solo se diseñará cuando esa fase inicie. No existe tabla, endpoint ni servicio asociado a mensajería en esta versión del TRD.
+> **Nota de alcance:** la entidad `MensajePedido` no existió en el MVP y ahora se construye como Fase 2 (RF-10, migración V4, épica M).
 
 **Estrategia de Migración:** Scripts SQL manuales versionados con Flyway (`V1__init.sql`, `V2__seed_data.sql`), lo que permite trazabilidad y consistencia del esquema entre entornos.
 
@@ -57,6 +58,8 @@
 
 **Contrato de API de catálogo (implementa RF-03):** `GET /api/productos?q=<texto>&categoria_id=<id>&municipio=<texto>` — responde `{ success, total, categorias, productos }` excluyendo `cantidad_disponible <= 0`; el frontend filtra vía fetch + re-render sin recarga. La restitución de stock (RF-06) corre dentro de la transacción de cancelación (`cancelOrder`), incrementando `version`.
 
+**Contrato de mensajería (implementa RF-10, Fase 2):** `POST /api/pedidos/:id/mensajes {mensaje}` · `GET /api/pedidos/:id/mensajes` (cronológico) · `PUT /api/pedidos/:id/mensajes/leer` (marca leídos los del otro) · `GET /api/pedidos/mensajes/no-leidos` (conteo por pedido). Solo participantes (comprador dueño o productor con productos en el pedido); ADMIN solo lectura. Texto 1–1000 caracteres sanitizado; correo async al receptor (extiende RF-07).
+
 ### 4. Estrategia de Pruebas y Robustez
 
 **Pruebas seleccionadas:** Pruebas con **Node (`tests/test_rf_suite.js`, comando `npm test` en `backend/`)**, enfocadas en la lógica de negocio del backend, mapeadas directamente a los criterios de aceptación del PRD. Cada RF del MVP tiene al menos una prueba explícita:
@@ -74,6 +77,8 @@
 | Persistencia del estado del pedido aunque el envío de correo falle (mock de fallo SMTP). | RF-07 |
 | Bloqueo de acceso a rutas `/admin/**` para roles distintos de Administrador. | RF-08, RF-09 |
 | Un usuario desactivado no puede iniciar sesión. | RF-08 |
+| Bloqueo de escritura/lectura de mensajes por un usuario ajeno al pedido. | RF-10 (Fase 2, verificación por script en M5) |
+| Flujo escribir → leer → marcar leídos entre participantes. | RF-10 (Fase 2, verificación por script en M5) |
 
 **Validación de Datos (doble capa):**
 - *Frontend:* Atributos nativos de HTML5 (`required`, `min="0"`, `type="email"`).

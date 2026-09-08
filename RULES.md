@@ -55,7 +55,7 @@
 - Todo input DEBE sanitizarse y validarse en backend antes de procesarse o persistirse.
 - Prohibido hashing obsoleto (MD5, SHA1); solo bcrypt.
 - Ocultar stack traces y detalles de infraestructura en producción; mensajes amables en español.
-- Prohibido crear `MensajePedido`, pasarelas de pago externas, GPS o cualquier feature fuera de RF-01 a RF-09.
+- Prohibido crear pasarelas de pago externas, GPS o cualquier feature fuera de RF-01 a RF-10 (`MensajePedido` autorizado únicamente dentro de RF-10, Fase 2).
 - Descuento de stock (RF-04): transacción atómica (`db.withTransaction`), aislamiento `READ_COMMITTED` (InnoDB por defecto), bloqueo optimista (columna `version`) + `SELECT ... FOR UPDATE`.
 - Ninguna tarea se da por completada sin ejecutar `npm test` y validar las 28 reglas activadas.
 

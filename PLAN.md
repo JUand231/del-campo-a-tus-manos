@@ -7,7 +7,7 @@
 
 **MVP (Fase 1):** RF-01 a RF-09 — autenticación y roles, gestión de productos, catálogo con búsqueda, ciclo completo de pedidos con descuento de stock, cancelación en estado `Pendiente`, notificaciones por correo y panel admin (moderación + métricas).
 
-**Fase 2 (Mejoras Cercanas):** Filtro avanzado por categorías/ubicación, **mensajería integrada al pedido (entidad `MensajePedido`, explícitamente fuera del MVP — ver PRD §4 y TRD §2)**, notificaciones por email más completas (ej. resumen semanal), historial detallado (el pipeline de CI declarativo ya opera: `.github/workflows/ci.yml`).
+**Fase 2 (En construcción):** Mensajería integrada al pedido (**RF-10**, épica M en curso: contrato, migración V4, API, correo, UI). Pendiente: filtro avanzado por categorías/ubicación, resumen semanal por correo, historial detallado.
 
 **Fase 3 (Largo Plazo):** Exportación de reportes PDF/Excel, mapa interactivo de productores y sistema de reputación/comentarios.
 
@@ -22,6 +22,8 @@
 | **Hito 5 – Panel Admin e Integración Final** | Módulo de moderación, consulta de métricas, suite Node sobre flujos críticos y despliegue final en servidor de pruebas. | RF-08, RF-09 | "Bloqueo de rutas /admin/** para roles no autorizados", "Usuario desactivado no puede iniciar sesión" |
 
 **Estado a cierre MVP:** los 5 hitos entregados y auditados (tickets T1–T13, endurecimiento S1–S7, Git + CI).
+
+**Hito 6 – Mensajería (Fase 2, en curso):** RF-10 — contrato (M0), migración V4 (M1), API (M2), correo (M3), UI (M4), verificación (M5).
 
 ### 3. Puertas de Calidad y Criterios de Parada (Human-in-the-Loop)
 

@@ -39,6 +39,7 @@ Cada funcionalidad tiene un identificador único (`RF-XX`) que debe citarse en T
 | **RF-07** | Notificaciones por Correo (Sistema) | El comprador recibe un correo automático cada vez que cambia el estado de su pedido (`En Proceso`, `Entregado` o `Cancelado`). | El correo se envía de forma asíncrona tras el cambio de estado; si el envío falla, la operación de cambio de estado **no se revierte** y el pedido conserva su nuevo estado. |
 | **RF-08** | Panel de Administración — Moderación | Control sobre el estado de cuentas de usuarios y moderación/eliminación de publicaciones inadecuadas. | Un usuario desactivado por el administrador no puede iniciar sesión ni realizar acciones en la plataforma hasta ser reactivado. |
 | **RF-09** | Panel de Administración — Métricas | El administrador consulta métricas globales del sistema (usuarios activos, productos publicados, pedidos completados). | Las métricas se calculan en tiempo real contra la base de datos en cada consulta (sin caché) o, si se implementa caché, esta tiene una frescura máxima de **5 minutos**. El panel es de solo lectura: no permite editar datos desde ahí. |
+| **RF-10** | Mensajería del Pedido (Fase 2) | Comprador y productor intercambian mensajes de texto dentro de un pedido donde participan. | Solo los participantes del pedido (comprador dueño o productor con productos en él) pueden escribir y leer; ADMIN solo lectura. Los mensajes se listan en orden cronológico con marca de leídos. |
 
 ### 4. Límites, Restricciones y Exclusiones
 
@@ -50,7 +51,7 @@ Cada funcionalidad tiene un identificador único (`RF-XX`) que debe citarse en T
 **Fuera del Alcance (Exclusiones para MVP — ver PLAN §1 "Fase 2/3"):**
 - Pasarelas de pago en línea integradas (pagos coordinados en persona/transferencia).
 - Rastreo GPS en tiempo real.
-- **Mensajería/chat directo entre productor y comprador dentro del pedido** (entidad `MensajePedido` reservada para Fase 2 — no se implementa en el MVP; no se crea su tabla en Hito 1 del TRD).
+- **Mensajería/chat directo entre productor y comprador dentro del pedido** (entidad `MensajePedido`: excluida del MVP, **en construcción en Fase 2 como RF-10**).
 - App nativa Android/iOS.
 - Facturación electrónica.
 - Calificaciones avanzadas con IA.
@@ -68,3 +69,5 @@ Cada funcionalidad tiene un identificador único (`RF-XX`) que debe citarse en T
 | Cancelación válida de un pedido en estado "Pendiente" y verificación de que el stock se restituye correctamente. | RF-06 |
 | Falla en el envío del correo de notificación: el pedido debe conservar su estado igualmente. | RF-07 |
 | Bloqueo de acceso a funciones administrativas para roles no autorizados. | RF-08, RF-09 |
+| Envío o lectura de mensajes por un usuario ajeno al pedido (debe bloquearse con 403). | RF-10 |
+| Mensaje vacío o mayor a 1000 caracteres (debe rechazarse con 400). | RF-10 |

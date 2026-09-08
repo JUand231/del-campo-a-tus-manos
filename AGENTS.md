@@ -28,7 +28,7 @@
 **Entidades permitidas en el MVP:** `Rol`, `Usuario` (con campo `activo: boolean` para RF-08), `Producto` (nombre, descripción, precio, cantidad, unidad de medida, foto, municipio), `Categoria`, `Pedido` (con enum `estado`: Pendiente/En Proceso/Entregado/Cancelado), `DetallePedido`.
 
 **Archivos y entidades prohibidos:**
-- No crear la entidad/tabla `MensajePedido` ni ningún endpoint o servicio de mensajería.
+- La entidad/tabla `MensajePedido` y sus endpoints existen únicamente bajo RF-10 (Fase 2); prohibida cualquier mensajería fuera de ese alcance.
 - No integrar pasarelas de pago, SDKs de GPS, ni tokens de API de terceros.
 - No hardcodear credenciales SMTP ni cadena de conexión a BD — siempre variables de entorno.
 
