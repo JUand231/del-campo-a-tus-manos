@@ -172,10 +172,27 @@ function validateOrder(req, res, next) {
     next();
 }
 
+/**
+ * Validador para mensajes del pedido (RF-10)
+ */
+function validateMessage(req, res, next) {
+    const texto = req.body.mensaje;
+
+    if (typeof texto !== 'string' || texto.trim().length < 1 || texto.trim().length > 1000) {
+        return res.status(400).json({
+            success: false,
+            message: 'El mensaje debe tener entre 1 y 1000 caracteres.'
+        });
+    }
+
+    next();
+}
+
 module.exports = {
     sanitizeBody,
     validateRegister,
     validateLogin,
     validateProduct,
-    validateOrder
+    validateOrder,
+    validateMessage
 };

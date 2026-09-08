@@ -51,6 +51,14 @@ async function main() {
             console.log(`✓ V3__password_reset_otp.sql ejecutado exitosamente.`);
         }
 
+        const v4Path = path.join(__dirname, 'migrations', 'V4__mensaje_pedido.sql');
+        if (fs.existsSync(v4Path)) {
+            console.log(`Leyendo y ejecutando V4__mensaje_pedido.sql...`);
+            const v4Sql = fs.readFileSync(v4Path, 'utf8');
+            await dbConn.query(v4Sql);
+            console.log(`✓ V4__mensaje_pedido.sql ejecutado exitosamente.`);
+        }
+
         console.log('--- BASE DE DATOS INICIALIZADA SATISFACTORIAMENTE ---');
         await dbConn.end();
         process.exit(0);

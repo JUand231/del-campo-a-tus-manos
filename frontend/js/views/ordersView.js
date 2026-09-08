@@ -9,6 +9,7 @@
 
 import { api } from '../api.js';
 import { store, showToast, confirmDialog } from '../store.js';
+import { threadToggleHTML, attachThreadToggles } from './messageThread.js';
 
 let currentFilter = 'all';
 
@@ -106,6 +107,13 @@ async function loadOrdersList() {
         const res = await api.getMyOrders();
         let orders = res.pedidos || [];
 
+        // RF-10: mapa de no leídos por pedido (best-effort, no bloquea la lista)
+        let unreadMap = {};
+        try {
+            const unreadRes = await api.getUnreadMessages();
+            (unreadRes.no_leidos || []).forEach(u => { unreadMap[u.pedido_id] = u.no_leidos; });
+        } catch (e) { /* sin insignias si falla */ }
+
         if (currentFilter !== 'all') {
             orders = orders.filter(o => o.estado === currentFilter);
         }
@@ -172,6 +180,9 @@ async function loadOrdersList() {
                         `).join('')}
                     </div>
 
+                    <!-- Hilo de mensajes (RF-10) -->
+                    ${threadToggleHTML(order.id, unreadMap[order.id] || 0)}
+
                     <!-- Pie de la Tarjeta: Total y Acciones -->
                     <div class="pt-3 border-t border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div>
@@ -224,6 +235,9 @@ async function loadOrdersList() {
                 }
             });
         });
+
+        // Hilo de mensajes (RF-10)
+        attachThreadToggles(container);
 
     } catch (err) {
         container.innerHTML = `

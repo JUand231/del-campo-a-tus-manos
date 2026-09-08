@@ -15,7 +15,7 @@ Plataforma de comercio justo que conecta directamente a campesinos productores c
 - **Backend:** API REST desacoplada en Node.js + Express con arquitectura limpia por capas (Controladores, Servicios, Repositorios/Modelos, Middlewares de Seguridad y RBAC). Recuperación por OTP (tabla `password_reset_otp`) y CI en GitHub Actions.
 - **Base de Datos:** **MySQL 8+** (con InnoDB y soporte transaccional completo). Se incluye conector nativo `mysql2` y scripts Flyway estándar (`V1__init.sql`, `V2__seed_data.sql` y `V3__password_reset_otp.sql`), además de un fallback resiliente en memoria para evaluación inmediata sin fricción si MySQL no estuviese activo localmente.
 - **Seguridad (OWASP Top 10):** Hashing con `bcrypt` (prohibido MD5/SHA1), autenticación con JWT en cookie HttpOnly (`SameSite=Lax`), RBAC (`/admin/**`, escritura de productos), sanitización contra XSS y SQL Injection, rate limiting en `/api/auth/login` y `/api/pedidos`, y cabeceras de seguridad CSP/HSTS.
-- **Límites de Alcance del MVP:** `MensajePedido` (en construcción en Fase 2 como RF-10); pasarelas de pago externas y rastreo GPS fuera del MVP.
+- **Límites de Alcance del MVP:** `MensajePedido` implementado en Fase 2 (RF-10); pasarelas de pago externas y rastreo GPS fuera del MVP.
 
 ---
 

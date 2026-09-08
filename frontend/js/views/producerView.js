@@ -9,6 +9,7 @@
 
 import { api } from '../api.js';
 import { store, showToast, confirmDialog } from '../store.js';
+import { threadToggleHTML, attachThreadToggles } from './messageThread.js';
 
 let editingProductId = null;
 let orderFilter = 'all';
@@ -312,6 +313,13 @@ async function loadOrders() {
     try {
         const res = await api.getProducerOrders();
         const allOrders = res.pedidos || [];
+
+        // RF-10: mapa de no leídos por pedido (best-effort, no bloquea la lista)
+        let unreadMap = {};
+        try {
+            const unreadRes = await api.getUnreadMessages();
+            (unreadRes.no_leidos || []).forEach(u => { unreadMap[u.pedido_id] = u.no_leidos; });
+        } catch (e) { /* sin insignias si falla */ }
         let orders = allOrders;
 
         // Aplicar filtro de tab
@@ -369,6 +377,7 @@ async function loadOrders() {
                         <div class="text-xs text-on-surface font-medium pt-1">
                             ${(ord.items || []).map(i => `<span class="inline-block bg-[#F5F3F3] px-2 py-0.5 rounded-md mr-1 mb-1">${i.cantidad} ${i.unidad_medida || 'Kg'} de <strong>${i.producto_nombre}</strong></span>`).join('')}
                         </div>
+                        ${threadToggleHTML(ord.id, unreadMap[ord.id] || 0)}
                     </div>
 
                     <!-- Transición Secuencial de Estados (RF-05) -->
@@ -425,6 +434,9 @@ async function loadOrders() {
                 }
             });
         });
+
+        // Hilo de mensajes (RF-10)
+        attachThreadToggles(listContainer);
 
     } catch (err) {
         listContainer.innerHTML = `

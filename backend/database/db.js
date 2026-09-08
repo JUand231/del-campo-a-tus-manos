@@ -103,19 +103,28 @@ async function runMigrationsIfEmpty() {
             console.log('[DB] Tablas existentes detectadas en MySQL. Esquema listo.');
         }
 
-        // D11: aplicar V3 (tabla OTP) si no existe, sin tocar migraciones ya aplicadas.
-        const [otpTables] = await pool.query("SHOW TABLES LIKE 'password_reset_otp'");
-        if (otpTables.length === 0) {
-            const v3Path = path.join(__dirname, 'migrations', 'V3__password_reset_otp.sql');
-            if (fs.existsSync(v3Path)) {
-                console.log('[DB] Aplicando migración V3__password_reset_otp.sql...');
-                const sqlV3 = fs.readFileSync(v3Path, 'utf8');
-                const statementsV3 = sqlV3.split(';').map(s => s.trim()).filter(s => s.length > 0);
-                for (const stmt of statementsV3) {
-                    await pool.query(stmt);
-                }
-                console.log('[DB] Migración V3 aplicada correctamente.');
+        // Migraciones incrementales (V3, V4, ...): aplicar cada una si su tabla
+        // no existe, sin tocar migraciones ya aplicadas.
+        const pendingMigrations = [
+            { file: 'V3__password_reset_otp.sql', table: 'password_reset_otp' },
+            { file: 'V4__mensaje_pedido.sql', table: 'mensaje_pedido' }
+        ];
+        for (const mig of pendingMigrations) {
+            const [existing] = await pool.query(`SHOW TABLES LIKE '${mig.table}'`);
+            if (existing.length > 0) continue;
+            const migPath = path.join(__dirname, 'migrations', mig.file);
+            if (!fs.existsSync(migPath)) continue;
+            console.log(`[DB] Aplicando migración ${mig.file}...`);
+            const sqlMig = fs.readFileSync(migPath, 'utf8');
+            // Las migraciones solo usan comentarios de línea completa (-- ...):
+            // se retiran antes de partir por ';' para que un ';' dentro de un
+            // comentario no genere fragmentos inválidos.
+            const withoutComments = sqlMig.split('\n').filter(l => !l.trim().startsWith('--')).join('\n');
+            const statements = withoutComments.split(';').map(s => s.trim()).filter(s => s.length > 0);
+            for (const stmt of statements) {
+                await pool.query(stmt);
             }
+            console.log(`[DB] Migración ${mig.file} aplicada correctamente.`);
         }
     } catch (migError) {
         console.error('[DB ERROR] Error ejecutando migraciones automáticas:', migError.message);
@@ -165,7 +174,8 @@ function initFallbackStore() {
             { id: 2, pedido_id: 2, producto_id: 2, cantidad: 3.00, precio_unitario: 4500.00, subtotal: 13500.00 },
             { id: 3, pedido_id: 3, producto_id: 3, cantidad: 2.00, precio_unitario: 7200.00, subtotal: 14400.00 }
         ],
-        otps: [] // D11: códigos de recuperación en modo fallback (con expiración)
+        otps: [], // D11: códigos de recuperación en modo fallback (con expiración)
+        mensajes: [] // RF-10: hilos por pedido en modo fallback
     };
     console.log('[DB] Fallback store listo con roles, usuarios, categorías, productos y pedidos semilla.');
 }
@@ -582,6 +592,82 @@ function executeFallbackQuery(sql, params = []) {
             return { affectedRows: 1 };
         }
         return { affectedRows: 0 };
+    }
+
+    // Hilo de mensajes por pedido (RF-10)
+    if (upper.includes('FROM MENSAJE_PEDIDO') && upper.includes('COUNT(')) {
+        const [ids, userId] = params;
+        const idSet = new Set((Array.isArray(ids) ? ids : [ids]).map(Number));
+        const agg = {};
+        for (const m of fallbackMemoryStore.mensajes) {
+            if (idSet.has(Number(m.pedido_id)) && Number(m.autor_id) !== Number(userId) && Number(m.leido) === 0) {
+                agg[m.pedido_id] = (agg[m.pedido_id] || 0) + 1;
+            }
+        }
+        return Object.entries(agg).map(([pedido_id, no_leidos]) => ({ pedido_id: Number(pedido_id), no_leidos }));
+    }
+
+    if (upper.startsWith('SELECT') && upper.includes('FROM MENSAJE_PEDIDO') && !upper.includes('COUNT(')) {
+        const pedidoId = Number(params[0]);
+        return fallbackMemoryStore.mensajes
+            .filter(m => Number(m.pedido_id) === pedidoId)
+            .sort((a, b) => new Date(a.created_at) - new Date(b.created_at) || a.id - b.id)
+            .map(m => {
+                const autor = fallbackMemoryStore.usuarios.find(u => u.id === Number(m.autor_id));
+                return { ...m, autor_nombre: autor ? autor.nombre : 'Usuario' };
+            });
+    }
+
+    if (upper.startsWith('INSERT INTO MENSAJE_PEDIDO')) {
+        const [pedido_id, autor_id, mensaje] = params;
+        const newId = fallbackMemoryStore.mensajes.length + 1;
+        fallbackMemoryStore.mensajes.push({
+            id: newId,
+            pedido_id: Number(pedido_id),
+            autor_id: Number(autor_id),
+            mensaje,
+            leido: 0,
+            created_at: new Date()
+        });
+        return { insertId: newId, affectedRows: 1 };
+    }
+
+    if (upper.startsWith('UPDATE MENSAJE_PEDIDO SET LEIDO = 1')) {
+        const [pedidoId, userId] = params;
+        let n = 0;
+        for (const m of fallbackMemoryStore.mensajes) {
+            if (Number(m.pedido_id) === Number(pedidoId) && Number(m.autor_id) !== Number(userId) && Number(m.leido) === 0) {
+                m.leido = 1;
+                n++;
+            }
+        }
+        return { affectedRows: n };
+    }
+
+    // Comprador de un pedido por join (M3: destinatarios de notificación)
+    if (upper.includes('FROM USUARIO') && upper.includes('JOIN PEDIDO')) {
+        const ped = fallbackMemoryStore.pedidos.find(p => p.id === Number(params[0]));
+        if (!ped) return [];
+        const buyer = fallbackMemoryStore.usuarios.find(u => u.id === ped.comprador_id);
+        return buyer ? [{ id: buyer.id, email: buyer.email, nombre: buyer.nombre }] : [];
+    }
+
+    // Productores de un pedido por joins (M3: destinatarios de notificación)
+    if (upper.includes('FROM USUARIO') && upper.includes('DETALLE_PEDIDO')) {
+        const pid = Number(params[0]);
+        const prodIds = [...new Set(
+            fallbackMemoryStore.detalles_pedido
+                .filter(d => d.pedido_id === pid)
+                .map(d => {
+                    const pr = fallbackMemoryStore.productos.find(p => p.id === d.producto_id);
+                    return pr ? pr.productor_id : null;
+                })
+                .filter(Boolean)
+        )];
+        return prodIds
+            .map(id => fallbackMemoryStore.usuarios.find(u => u.id === id))
+            .filter(Boolean)
+            .map(u => ({ email: u.email, nombre: u.nombre }));
     }
 
     // Por defecto retorno vacío seguro

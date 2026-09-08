@@ -69,6 +69,12 @@ export const api = {
     updateOrderStatus: (id, nuevo_estado) => request(`/pedidos/${id}/estado`, { method: 'PUT', body: JSON.stringify({ nuevo_estado }) }),
     cancelOrder: (id) => request(`/pedidos/${id}/cancelar`, { method: 'PUT' }),
 
+    // Mensajería del pedido (RF-10, Fase 2)
+    getOrderMessages: (id) => request(`/pedidos/${id}/mensajes`),
+    postOrderMessage: (id, mensaje) => request(`/pedidos/${id}/mensajes`, { method: 'POST', body: JSON.stringify({ mensaje }) }),
+    markMessagesRead: (id) => request(`/pedidos/${id}/mensajes/leer`, { method: 'PUT' }),
+    getUnreadMessages: () => request('/pedidos/mensajes/no-leidos'),
+
     // Administración
     getAdminMetrics: (force = false) => request(`/admin/metricas${force ? '?force=true' : ''}`),
     getAdminUsers: () => request('/admin/usuarios'),

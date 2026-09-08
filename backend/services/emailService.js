@@ -13,6 +13,8 @@ try {
     nodemailer = null;
 }
 
+const db = require('../database/db');
+
 const logger = require('./logger');
 
 /**
@@ -92,8 +94,84 @@ function sendOrderStatusNotificationAsync({ to, nombreComprador, pedidoId, nuevo
 }
 
 /**
- * Envía notificación por correo con código OTP de recuperación de contraseña a un correo REAL
+ * Envía notificación por correo de mensaje nuevo en un pedido (RF-10, extiende RF-07)
  */
+function sendNewMessageNotificationAsync({ to, nombreDestinatario, autorNombre, pedidoId, mensaje }) {
+    setImmediate(async () => {
+        try {
+            const timestamp = new Date().toISOString();
+            console.log(`[EMAIL SERVICE - ASYNC ${timestamp}] Nuevo mensaje en pedido...`);
+            console.log(`[EMAIL INFO] Destinatario: ${to} | Pedido: #DCM-${pedidoId} | De: '${autorNombre}'`);
+
+            const preview = String(mensaje || '').slice(0, 140);
+            const transporter = getTransporter();
+            if (transporter) {
+                const fromAddress = process.env.SMTP_FROM || `"Del Campo a Tus Manos" <${process.env.SMTP_USER}>`;
+                await transporter.sendMail({
+                    from: fromAddress,
+                    to,
+                    subject: `💬 Nuevo mensaje en tu Pedido #DCM-${pedidoId} - Del Campo a Tus Manos`,
+                    html: `
+                        <div style="font-family: Arial, sans-serif; max-width: 580px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
+                            <div style="background-color: #2F6F4E; padding: 20px; text-align: center; color: white;">
+                                <h2 style="margin: 0;">🌾 Del Campo a Tus Manos</h2>
+                            </div>
+                            <div style="padding: 24px;">
+                                <h3>Hola ${nombreDestinatario},</h3>
+                                <p><strong>${autorNombre}</strong> te escribió en el pedido <strong>#DCM-${pedidoId}</strong>:</p>
+                                <div style="background-color: #F4F8F5; border-left: 4px solid #2F6F4E; padding: 12px; font-size: 14px; color: #1f2937; margin: 16px 0;">
+                                    ${preview}
+                                </div>
+                                <p>Ingresa a la plataforma para responder.</p>
+                            </div>
+                        </div>
+                    `
+                });
+                console.log(`[EMAIL SUCCESS REAL] Mensaje notificado a ${to}`);
+            } else {
+                console.log(`[EMAIL LOG] Mensaje notificado a ${to} (Pedido: ${pedidoId})`);
+            }
+        } catch (error) {
+            console.error(`[EMAIL ERROR AUDIT] Fallo notificando mensaje del pedido #${pedidoId}:`, error.message);
+        }
+    });
+}
+
+/**
+ * Resuelve al otro participante del pedido y le notifica (fire-and-forget).
+ * Nunca lanza: un fallo aquí jamás bloquea ni revierte el 201 del mensaje.
+ */
+async function notifyOrderMessageAsync({ pedidoId, autorId, autorNombre, texto }) {
+    try {
+        const buyerRows = await db.query(
+            'SELECT u.id, u.email, u.nombre FROM usuario u JOIN pedido p ON p.comprador_id = u.id WHERE p.id = ?',
+            [pedidoId]
+        );
+        const producerRows = await db.query(
+            `SELECT DISTINCT u.email, u.nombre FROM usuario u
+             JOIN producto pr ON pr.productor_id = u.id
+             JOIN detalle_pedido dp ON dp.producto_id = pr.id
+             WHERE dp.pedido_id = ?`,
+            [pedidoId]
+        );
+        const buyer = buyerRows && buyerRows[0];
+        const recipients = (buyer && Number(buyer.id) === Number(autorId))
+            ? producerRows
+            : (buyer ? [buyer] : []);
+
+        for (const r of recipients) {
+            sendNewMessageNotificationAsync({
+                to: r.email,
+                nombreDestinatario: r.nombre,
+                autorNombre: autorNombre || 'Tu contacto',
+                pedidoId,
+                mensaje: texto
+            });
+        }
+    } catch (error) {
+        console.error(`[EMAIL ERROR AUDIT] Fallo resolviendo destinatarios del pedido #${pedidoId}:`, error.message);
+    }
+}
 function sendPasswordResetOtpAsync({ to, nombre, otp }) {
     setImmediate(async () => {
         console.log(`[EMAIL OTP] Enviando código de verificación a ${to}...`);
@@ -150,5 +228,7 @@ function sendPasswordResetOtpAsync({ to, nombre, otp }) {
 
 module.exports = {
     sendOrderStatusNotificationAsync,
-    sendPasswordResetOtpAsync
+    sendPasswordResetOtpAsync,
+    sendNewMessageNotificationAsync,
+    notifyOrderMessageAsync
 };

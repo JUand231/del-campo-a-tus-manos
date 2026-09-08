@@ -23,7 +23,7 @@
 
 **Estado a cierre MVP:** los 5 hitos entregados y auditados (tickets T1–T13, endurecimiento S1–S7, Git + CI).
 
-**Hito 6 – Mensajería (Fase 2, en curso):** RF-10 — contrato (M0), migración V4 (M1), API (M2), correo (M3), UI (M4), verificación (M5).
+**Hito 6 – Mensajería (Fase 2, entregado):** RF-10 — contrato (M0), migración V4 (M1), API (M2), correo (M3), UI (M4), verificación (M5).
 
 ### 3. Puertas de Calidad y Criterios de Parada (Human-in-the-Loop)
 
